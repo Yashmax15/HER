@@ -71,22 +71,14 @@ line(x-17,y-14,x-21,y+2);
 line(x+17,y-14,x+21,y+2);
 //hair
 setcolor(EGA_LIGHTRED);
-line(x-19,y-24,x-20,y-34);
-line(x-20,y-34,x-18,y-34);
-line(x-18,y-34,x-18,y-43);
-line(x-18,y-43,x-15,y-48);
-line(x-15,y-48,x-13,y-44);
-line(x-13,y-44,x-8,y-62);
-line(x-8,y-62,x+2,y-50);
-line(x+2,y-50,x+3,y-41);
-line(x+3,y-41,x+5,y-47);
-line(x+5,y-47,x+8,y-46);
-line(x+8,y-46,x+10,y-54);
-line(x+10,y-54,x+15,y-41);
-line(x+15,y-41,x+20,y-38);
-line(x+20,y-38,x+19,y-24);
-}
+setfillstyle(SOLID_FILL,EGA_LIGHTRED);
+int hair_coor[]={x-19,y-24,x-20,y-34,x-18,y-34,x-18,y-43,x-15,y-48,x-13,y-44,
+		 x-8,y-62,x+2,y-50,x+3,y-41,x+5,y-47,x+8,y-46,x+10,y-54,
+		 x+15,y-41,x+20,y-38,x+19,y-24,x+17,y-24,x+10,y-34,x+4,y-24,
+		 x-4,y-24,x-10,y-34,x-17,y-24};
 
+fillpoly(21,hair_coor);
+}
 
 void hero_b(int x, int y)
 {//face
