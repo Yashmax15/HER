@@ -25,8 +25,9 @@ void main()
 int gd=DETECT,gm;
 //initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
 initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
-setbkcolor(WHITE);
+//setbkcolor(WHITE);
 int x=120,y=120;
 hero_f(x,y);
+if (y<200)
 move_hero(x,y,0,getmaxx(),0,getmaxy());
 getch();}
