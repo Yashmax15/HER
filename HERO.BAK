@@ -119,22 +119,13 @@ line(x-17,y-14,x-21,y+2);
 line(x+17,y-14,x+21,y+2);
 //hair
 setcolor(EGA_LIGHTRED);
-line(x+19,y-24,x+20,y-34);
-line(x+20,y-34,x+18,y-34);
-line(x+18,y-34,x+18,y-43);
-line(x+18,y-43,x+15,y-48);
-line(x+15,y-48,x+13,y-44);
-line(x+13,y-44,x+8,y-62);
-line(x+8,y-62,x-2,y-50);
-line(x-2,y-50,x-3,y-41);
-line(x-3,y-41,x-5,y-47);
-line(x-5,y-47,x-8,y-46);
-line(x-8,y-46,x-10,y-54);
-line(x-10,y-54,x-15,y-41);
-line(x-15,y-41,x-20,y-38);
-line(x-20,y-38,x-19,y-24);
-}
+setfillstyle(SOLID_FILL,EGA_LIGHTRED);
+int hair_coor[]={x+19,y-24,x+20,y-34,x+18,y-34,x+18,y-43,x+15,y-48,x+13,y-44,
+		 x+8,y-62,x-2,y-50,x-3,y-41,x-5,y-47,x-8,y-46,x-10,y-54,x-15,y-41,
+		 x-20,y-38,x-19,y-24,x-17,y-24,x-8,y-18,x+8,y-18,x+17,y-24};
 
+fillpoly(19,hair_coor);
+}
 
 void hero_r(int x,int y)
 {//pant+belt
@@ -151,26 +142,19 @@ line(x+10,y+18,x+10,y-14);
 //face//
 line(x+10,y-4,x+6,y-4);
 line(x+6,y-4,x-10,y-14);
-line(x-10,y-14,x,y-20);
-line(x,y-20,x-2,y-22);
-line(x-2,y-22,x-2,y-24);
-line(x-2,y-24,x,y-24);
-line(x,y-24,x+10,y-34);
 line(x+10,y-44,x+10,y-19);
 line(x+10,y-19,x+11,y-14);
 line(x+10,y-14,x+10,y-4);
 //hair
 setcolor(EGA_LIGHTRED);
-line(x-10,y-14,x-15,y-24);
-line(x-15,y-24,x-15,y-34);
-line(x-15,y-34,x-13,y-34);
-line(x-13,y-34,x-2,y-62);
-line(x-2,y-62,x,y-52);
-line(x,y-52,x+2,y-52);
-line(x+2,y-52,x+4,y-44);
-line(x+4,y-44,x+6,y-54);
-line(x+6,y-54,x+10,y-44);
-line(x+10,y-44,x+10,y-34);
+setfillstyle(SOLID_FILL,LIGHTRED);
+
+int hair_coor[]={x-10,y-14,x-15,y-24,x-15,y-34,x-13,y-34,x-2,y-62,x,y-52,
+		 x+2,y-52,x+4,y-44,x+6,y-54,x+10,y-44,x+10,y-34,
+		 x,y-24,x-2,y-24,x-2,y-22,x,y-20,x-8,y-14,x-10,y-14};
+
+fillpoly(17,hair_coor);
+
 //eyes
 setcolor(EGA_BROWN);
 line(x+3,y-25,x+8,y-21);
@@ -203,26 +187,19 @@ line(x+10,y+18,x+10,y-14);
 //face//
 line(x-10,y-4,x-6,y-4);
 line(x-6,y-4,x+10,y-14);
-line(x+10,y-14,x,y-20);
-line(x,y-20,x+2,y-22);
-line(x+2,y-22,x+2,y-24);
-line(x+2,y-24,x,y-24);
-line(x,y-24,x-10,y-34);
 line(x-10,y-44,x-10,y-19);
 line(x-10,y-19,x-11,y-14);
 line(x-10,y-14,x-10,y-4);
 //hair
 setcolor(EGA_LIGHTRED);
-line(x+10,y-14,x+15,y-24);
-line(x+15,y-24,x+15,y-34);
-line(x+15,y-34,x+13,y-34);
-line(x+13,y-34,x+2,y-62);
-line(x+2,y-62,x,y-52);
-line(x,y-52,x-2,y-52);
-line(x-2,y-52,x-4,y-44);
-line(x-4,y-44,x-6,y-54);
-line(x-6,y-54,x-10,y-44);
-line(x-10,y-44,x-10,y-34);
+setfillstyle(SOLID_FILL,LIGHTRED);
+
+int hair_coor[]={x+10,y-14,x+15,y-24,x+15,y-34,x+13,y-34,x+2,y-62,x,y-52,
+		 x-2,y-52,x-4,y-44,x-6,y-54,x-10,y-44,x-10,y-34,
+		 x,y-24,x+2,y-24,x+2,y-22,x,y-20,x+8,y-14,x+10,y-14};
+
+fillpoly(17,hair_coor);
+
 //eyes
 setcolor(EGA_BROWN);
 line(x-3,y-25,x-8,y-21);
@@ -239,7 +216,7 @@ line(x+2,y+4,x+2,y-4);
 circle(x,y+4,2);
 }
 
-void chareraser(int x, int y, int a){
+void chareraser(int a){
 int b[]={0,0,0,479,639,479,639,0,0,0};
 setcolor(a);
 setfillstyle(SOLID_FILL,a) ;
@@ -247,21 +224,25 @@ fillpoly(4,b);
 }
 
 
-void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy){
+void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valminx, int valmaxx, int valminy, int valmaxy){
 hero_f(x,y);
 int quit=0;
 while(1){/*1=true, so this loop runs as long as it is not exited manually*/
+	if (x>=valminx&&x<valmaxx&&y>=valminy&&y<valmaxy){
 	switch (getch())
 	{case 0:
 	  {switch (getch()){
-		   case 75:{if(x>(minx+25)){chareraser(x,y,63);hero_l(x-=5,y);}break;}
-		   case 77:{if(x<(maxx-25)){chareraser(x,y,63);hero_r(x+=5,y);}break;}
-		   case 72:{if(y>(miny+65)){chareraser(x,y,63);hero_b(x,y-=5);}break;}
-		   case 80:{if(y<(maxy-25)){chareraser(x,y,63);hero_f(x,y+=5);}break;}
+		   case 75:{if(x>(minx+25)){chareraser(63);x-=5;hero_l(x,y);}break;}
+		   case 77:{if(x<(maxx-25)){chareraser(63);x+=5;hero_r(x,y);}break;}
+		   case 72:{if(y>(miny+65)){chareraser(63);y-=5;hero_b(x,y);}break;}
+		   case 80:{if(y<(maxy-25)){chareraser(63);y+=5;hero_f(x,y);}break;}
 			   }break;
 	  }
 	 case 27:{quit=1; break;}
 	}
-	if (quit==1){return;}
+	if (quit==1){return;}                          }
+
+	else {return;}
 	}
+
 }
