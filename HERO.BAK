@@ -6,84 +6,78 @@
 
 void hero_f(int x, int y)
 {//face
-setcolor(EGA_DARKGRAY);
-setfillstyle(SOLID_FILL,EGA_LIGHTGREEN);
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,WHITE);
 int face_coor[]={x-17,y-14,x-4,y-4,x+4,y-4,x+17,y-14,x+17,y-24,
 		 x+10,y-34,x+4,y-24,x-4,y-24,x-10,y-34,x-17,y-24,
 		 x-17,y-14};
 fillpoly(11,face_coor);
-//ears
-int earl_coor[]={x-17,y-24,x-19,y-24,x-19,y-22,x-17,y-21};
-int earr_coor[]={x+17,y-24,x+19,y-24,x+19,y-22,x+17,y-21};
-fillpoly(4,earl_coor);
-fillpoly(4,earr_coor);
 
+//ears
+int earL_coor[]={x-17,y-24,x-19,y-24,x-19,y-22,x-17,y-21};
+int earR_coor[]={x+17,y-24,x+19,y-24,x+19,y-22,x+17,y-21};
+fillpoly(4,earL_coor);
+fillpoly(4,earR_coor);
 
 //eyes
-setcolor(DARKGRAY);
 setfillstyle(SOLID_FILL,DARKGRAY);
-int pupill_coor[]={x-6,y-12,x-6,y-18,x-8,y-20,x-9,y-14};
-int pupilr_coor[]={x+6,y-12,x+6,y-18,x+8,y-20,x+9,y-14};
-fillpoly(4,pupill_coor);
-fillpoly(4,pupilr_coor);
+int pupilL_coor[]={x-6,y-12,x-6,y-18,x-8,y-20,x-9,y-14};
+int pupilR_coor[]={x+6,y-12,x+6,y-18,x+8,y-20,x+9,y-14};
+fillpoly(4,pupilL_coor);
+fillpoly(4,pupilR_coor);
 
 setcolor(BROWN);
 setfillstyle(SOLID_FILL,BROWN);
-int eyebrowl_coor[]={x-12,y-22,x-12,y-23,x-11,y-24,x-6,y-20,x-5,y-19,x-6,y-18};
-int eyebrowr_coor[]={x+12,y-22,x+12,y-23,x+11,y-24,x+6,y-20,x+5,y-19,x+6,y-18};
-fillpoly(6,eyebrowl_coor);
-fillpoly(6,eyebrowr_coor);
+int eyebrowL_coor[]={x-12,y-22,x-12,y-23,x-11,y-24,x-6,y-20,x-5,y-19,x-6,y-18};
+int eyebrowR_coor[]={x+12,y-22,x+12,y-23,x+11,y-24,x+6,y-20,x+5,y-19,x+6,y-18};
+fillpoly(6,eyebrowL_coor);
+fillpoly(6,eyebrowR_coor);
 
 setcolor(DARKGRAY);
 setfillstyle(SOLID_FILL,WHITE);
-int irisl_coor[]={x-12,y-22,x-12,y-16,x-9,y-14,x-8,y-19};
-int irisr_coor[]={x+12,y-22,x+12,y-16,x+9,y-14,x+8,y-19};
-fillpoly(4,irisl_coor);
-fillpoly(4,irisr_coor);
-
-//scarf
-/*setcolor(EGA_LIGHTRED);
-line(x-17,y-10,x-4,y);
-line(x-4,y,x+4,y);
-line(x+4,y,x+17,y-10);*/  //please check if you like the character with or without the scarf
-//pant+shirt
-setcolor(EGA_DARKGRAY);
-line(x-17,y+18,x-14,y+18);
-line(x-10,y+18,x-5,y+18);
-line(x-5,y+18,x,y+16);
-line(x+10,y+18,x+5,y+18);
-line(x+5,y+18,x,y+16);
-line(x,y+10,x,y+16);
-line(x+14,y+18,x+17,y+18);
-line(x-17,y+18,x-17,y-24);
-line(x+17,y-24,x+17,y+18);
+int irisL_coor[]={x-12,y-22,x-12,y-16,x-9,y-14,x-8,y-19};
+int irisR_coor[]={x+12,y-22,x+12,y-16,x+9,y-14,x+8,y-19};
+fillpoly(4,irisL_coor);
+fillpoly(4,irisR_coor);
 
 //shirt
-setcolor(DARKGRAY);
 setfillstyle(SOLID_FILL,LIGHTMAGENTA);
 int shirt_coor[]={x-17,y-14,x-4,y-4,x+4,y-4,x+17,y-14,x+17,y+8,x-17,y+8};
 fillpoly(6,shirt_coor);
+
 //belt
-setcolor(EGA_LIGHTBLUE);
-line(x+17,y+10,x-17,y+10);
-line(x+17,y+8,x-17,y+8);
+setcolor(LIGHTBLUE);
+setfillstyle(SOLID_FILL,MAGENTA);
+int beltR_coor[]={x+17,y+10,x+17,y+8,x+2,y+8,x+2,y+10};
+int beltL_coor[]={x-17,y+8,x-17,y+10,x-2,y+10,x-2,y+8};
+fillpoly(4,beltL_coor);
+fillpoly(4,beltR_coor);
 setfillstyle(SOLID_FILL,BLUE);
 int buckle_coor[]={x-2,y+8,x-2,y+10,x+2,y+8,x+2,y+10};
 fillpoly(4,buckle_coor);
+
 //hand+leg
-setcolor(EGA_DARKGRAY);
+setcolor(DARKGRAY);
 circle(x-12,y+18,2);
 circle(x-19,y+2,2);
 circle(x+12,y+18,2);
 circle(x+19,y+2,2);
-int handl_coor[]={x-17,y-14,x-21,y+2,x-17,y+2};
-int handr_coor[]={x+17,y-14,x+21,y+2,x+17,y+2};
-setfillstyle(SOLID_FILL,EGA_LIGHTGRAY);
-fillpoly(3,handl_coor);
-fillpoly(3,handr_coor);
+int handL_coor[]={x-17,y-14,x-21,y+2,x-17,y+2};
+int handR_coor[]={x+17,y-14,x+21,y+2,x+17,y+2};
+setfillstyle(SOLID_FILL,LIGHTMAGENTA);
+fillpoly(3,handL_coor);
+fillpoly(3,handR_coor);
+
+//pant
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+int pantL_coor[]={x-17,y+10,x-17,y+18,x-5,y+18,x,y+16,x,y+10};
+int pantR_coor[]={x+17,y+10,x+17,y+18,x+5,y+18,x,y+16,x,y+10};
+fillpoly(5,pantL_coor);
+fillpoly(5,pantR_coor);
+
 //hair
-setcolor(EGA_LIGHTRED);
-setfillstyle(SOLID_FILL,EGA_LIGHTRED);
+setcolor(LIGHTRED);
+setfillstyle(SOLID_FILL,LIGHTRED);
 int hair_coor[]={x-19,y-24,x-20,y-34,x-18,y-34,x-18,y-43,x-15,y-48,x-13,y-44,
 		 x-8,y-62,x+2,y-50,x+3,y-41,x+5,y-47,x+8,y-46,x+10,y-54,
 		 x+15,y-41,x+20,y-38,x+19,y-24,x+17,y-24,x+10,y-34,x+4,y-24,
@@ -92,34 +86,26 @@ int hair_coor[]={x-19,y-24,x-20,y-34,x-18,y-34,x-18,y-43,x-15,y-48,x-13,y-44,
 fillpoly(21,hair_coor);
 }
 
+
 void hero_b(int x, int y)
 {//face
 setcolor(DARKGRAY);
-setfillstyle(SOLID_FILL,LIGHTGREEN);
+setfillstyle(SOLID_FILL,WHITE);
 int face_coor[]={x-17,y-14,x+17,y-14,x+17,y-24,x+8,y-18,x-8,y-18,x-17,y-24};
 fillpoly(6,face_coor);
 
 //ears
-setcolor(EGA_DARKGRAY);
-setfillstyle(SOLID_FILL,EGA_LIGHTGREEN);
-int earl_coor[]={x-17,y-24,x-19,y-24,x-19,y-22,x-17,y-21};
-int earr_coor[]={x+17,y-24,x+19,y-24,x+19,y-22,x+17,y-21};
-fillpoly(4,earl_coor);
-fillpoly(4,earr_coor);
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+int earL_coor[]={x-17,y-24,x-19,y-24,x-19,y-22,x-17,y-21};
+int earR_coor[]={x+17,y-24,x+19,y-24,x+19,y-22,x+17,y-21};
+fillpoly(4,earL_coor);
+fillpoly(4,earR_coor);
 
-//pant+belt
-line(x-17,y+18,x-14,y+18);
-line(x-10,y+18,x-5,y+18);
-line(x-5,y+18,x,y+16);
-line(x+10,y+18,x+5,y+18);
-line(x+5,y+18,x,y+16);
-line(x,y+10,x,y+16);
-line(x+14,y+18,x+17,y+18);
-line(x-17,y+18,x-17,y-24);
-line(x+17,y-24,x+17,y+18);
-setcolor(EGA_LIGHTBLUE);
-line(x+17,y+10,x-17,y+10);
-line(x+17,y+8,x-17,y+8);
+//belt
+setcolor(LIGHTBLUE);
+setfillstyle(SOLID_FILL,MAGENTA);
+int belt_coor[]={x+17,y+10,x-17,y+10,x-17,y+8,x+17,y+8};
+fillpoly(4,belt_coor);
 
 //shirt
 setcolor(DARKGRAY);
@@ -128,20 +114,26 @@ int shirt_coor[]={x-17,y-14,x+17,y-14,x+17,y+8,x-17,y+8};
 fillpoly(4,shirt_coor);
 
 //hand+leg
-setcolor(EGA_DARKGRAY);
 circle(x-12,y+18,2);
 circle(x-19,y+2,2);
 circle(x+12,y+18,2);
 circle(x+19,y+2,2);
-int handl_coor[]={x-17,y-14,x-21,y+2,x-17,y+2};
-int handr_coor[]={x+17,y-14,x+21,y+2,x+17,y+2};
-setfillstyle(SOLID_FILL,EGA_LIGHTGRAY);
-fillpoly(3,handl_coor);
-fillpoly(3,handr_coor);
+int handL_coor[]={x-17,y-14,x-21,y+2,x-17,y+2};
+int handR_coor[]={x+17,y-14,x+21,y+2,x+17,y+2};
+setfillstyle(SOLID_FILL,LIGHTMAGENTA);
+fillpoly(3,handL_coor);
+fillpoly(3,handR_coor);
+
+//pant
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+int pantL_coor[]={x-17,y+10,x-17,y+18,x-5,y+18,x,y+16,x,y+10};
+int pantR_coor[]={x+17,y+10,x+17,y+18,x+5,y+18,x,y+16,x,y+10};
+fillpoly(5,pantL_coor);
+fillpoly(5,pantR_coor);
 
 //hair
-setcolor(EGA_LIGHTRED);
-setfillstyle(SOLID_FILL,EGA_LIGHTRED);
+setcolor(LIGHTRED);
+setfillstyle(SOLID_FILL,LIGHTRED);
 int hair_coor[]={x+19,y-24,x+20,y-34,x+18,y-34,x+18,y-43,x+15,y-48,x+13,y-44,
 		 x+8,y-62,x-2,y-50,x-3,y-41,x-5,y-47,x-8,y-46,x-10,y-54,x-15,y-41,
 		 x-20,y-38,x-19,y-24,x-17,y-24,x-8,y-18,x+8,y-18,x+17,y-24};
@@ -149,26 +141,37 @@ int hair_coor[]={x+19,y-24,x+20,y-34,x+18,y-34,x+18,y-43,x+15,y-48,x+13,y-44,
 fillpoly(19,hair_coor);
 }
 
+
 void hero_r(int x,int y)
-{//pant+belt
-setcolor(EGA_LIGHTBLUE);
-line(x-10,y+8,x+10,y+8);
-line(x-10,y+10,x+10,y+10);
-line(x+9,y+8,x+9,y+10);  //
-setcolor(EGA_DARKGRAY);
-line(x-10,y+18,x+2,y+18); //
-line(x+6,y+18,x+10,y+18); //
+{//belt
+setcolor(LIGHTBLUE);
+setfillstyle(SOLID_FILL,MAGENTA);
+int belt_coor[]={x-10,y+8,x+9,y+8,x+9,y+10,x-10,y+10};
+fillpoly(4,belt_coor);
+setfillstyle(SOLID_FILL,BLUE);
+int buckle_coor[]={x+9,y+8,x+9,y+10,x+10,y+10,x+10,y+8};
+fillpoly(4,buckle_coor);
+
+//pant
 circle(x+4,y+18,2);
-line(x-10,y+18,x-10,y-14);
-line(x+10,y+18,x+10,y-14);
-//face//
-line(x+10,y-4,x+6,y-4);
-line(x+6,y-4,x-10,y-14);
-line(x+10,y-44,x+10,y-19);
-line(x+10,y-19,x+11,y-14);
-line(x+10,y-14,x+10,y-4);
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+int pant_coor[]={x-10,y+10,x-10,y+18,x+10,y+18,x+10,y+10};
+fillpoly(4,pant_coor);
+
+//shirt
+setfillstyle(SOLID_FILL,LIGHTMAGENTA);
+int shirt_coor[]={x-10,y-14,x+6,y-4,x+10,y-4,x+10,y+8,x-10,y+8};
+fillpoly(5,shirt_coor);
+
+//face
+setfillstyle(SOLID_FILL,WHITE);
+int face_coor[]={x-10,y-14,x+6,y-4,x+10,y-4,x+10,y-14,x+11,y-14,x+10,y-19,x+10,y-34,
+		 x,y-24,x-2,y-24,x-2,y-22,x,y-20};
+fillpoly(11,face_coor);
+
 //hair
-setcolor(EGA_LIGHTRED);
+setcolor(LIGHTRED);
 setfillstyle(SOLID_FILL,LIGHTRED);
 
 int hair_coor[]={x-10,y-14,x-15,y-24,x-15,y-34,x-13,y-34,x-2,y-62,x,y-52,
@@ -178,16 +181,22 @@ int hair_coor[]={x-10,y-14,x-15,y-24,x-15,y-34,x-13,y-34,x-2,y-62,x,y-52,
 fillpoly(17,hair_coor);
 
 //eyes
-setcolor(EGA_BROWN);
-line(x+3,y-25,x+8,y-21);
-line(x+8,y-21,x+8,y-14);
-line(x+8,y-14,x+2,y-18);
-line(x+2,y-18,x+2,y-25);
-line(x+2,y-25,x+3,y-25);
-line(x+5,y-16,x+6,y-22);
-line(x+2,y-24,x+8,y-20);
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,DARKGRAY);
+int pupilL_coor[]={x+8,y-11,x+8,y-19,x+6,y-21,x+5,y-15};
+fillpoly(4,pupilL_coor);
+
+setcolor(BROWN);
+setfillstyle(SOLID_FILL,BROWN);
+int eyebrowL_coor[]={x+2,y-23,x+2,y-24,x+3,y-25,x+8,y-21,x+9,y-20,x+8,y-19};
+fillpoly(6,eyebrowL_coor);
+
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,WHITE);
+int irisL_coor[]={x+2,y-23,x+2,y-17,x+5,y-15,x+6,y-20};
+fillpoly(4,irisL_coor);
+
 //hand
-setcolor(EGA_DARKGRAY);
 line(x-2,y+4,x-2,y-4);
 line(x+2,y+4,x+2,y-4);
 circle(x,y+4,2);
@@ -195,25 +204,35 @@ circle(x,y+4,2);
 
 
 void hero_l(int x,int y)
-{//pant+belt
-setcolor(EGA_LIGHTBLUE);
-line(x-10,y+8,x+10,y+8);
-line(x-10,y+10,x+10,y+10);
-line(x-9,y+8,x-9,y+10);  //
-setcolor(EGA_DARKGRAY);
-line(x+10,y+18,x-2,y+18); //
-line(x-6,y+18,x-10,y+18); //
+{//belt
+setcolor(LIGHTBLUE);
+setfillstyle(SOLID_FILL,MAGENTA);
+int belt_coor[]={x+10,y+8,x-9,y+8,x-9,y+10,x+10,y+10};
+fillpoly(4,belt_coor);
+setfillstyle(SOLID_FILL,BLUE);
+int buckle_coor[]={x-9,y+8,x-9,y+10,x-10,y+10,x-10,y+8};
+fillpoly(4,buckle_coor);
+
+//pant
 circle(x-4,y+18,2);
-line(x-10,y+18,x-10,y-14);
-line(x+10,y+18,x+10,y-14);
-//face//
-line(x-10,y-4,x-6,y-4);
-line(x-6,y-4,x+10,y-14);
-line(x-10,y-44,x-10,y-19);
-line(x-10,y-19,x-11,y-14);
-line(x-10,y-14,x-10,y-4);
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+int pant_coor[]={x+10,y+10,x+10,y+18,x-10,y+18,x-10,y+10};
+fillpoly(4,pant_coor);
+
+//shirt
+setfillstyle(SOLID_FILL,LIGHTMAGENTA);
+int shirt_coor[]={x+10,y-14,x-6,y-4,x-10,y-4,x-10,y+8,x+10,y+8};
+fillpoly(5,shirt_coor);
+
+//face
+setfillstyle(SOLID_FILL,WHITE);
+int face_coor[]={x+10,y-14,x-6,y-4,x-10,y-4,x-10,y-14,x-11,y-14,x-10,y-19,x-10,y-34,
+		 x,y-24,x+2,y-24,x+2,y-22,x,y-20};
+fillpoly(11,face_coor);
+
 //hair
-setcolor(EGA_LIGHTRED);
+setcolor(LIGHTRED);
 setfillstyle(SOLID_FILL,LIGHTRED);
 
 int hair_coor[]={x+10,y-14,x+15,y-24,x+15,y-34,x+13,y-34,x+2,y-62,x,y-52,
@@ -223,16 +242,22 @@ int hair_coor[]={x+10,y-14,x+15,y-24,x+15,y-34,x+13,y-34,x+2,y-62,x,y-52,
 fillpoly(17,hair_coor);
 
 //eyes
-setcolor(EGA_BROWN);
-line(x-3,y-25,x-8,y-21);
-line(x-8,y-21,x-8,y-14);
-line(x-8,y-14,x-2,y-18);
-line(x-2,y-18,x-2,y-25);
-line(x-2,y-25,x-3,y-25);
-line(x-5,y-16,x-6,y-22);
-line(x-2,y-24,x-8,y-20);
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,DARKGRAY);
+int pupilL_coor[]={x-8,y-11,x-8,y-19,x-6,y-21,x-5,y-15};
+fillpoly(4,pupilL_coor);
+
+setcolor(BROWN);
+setfillstyle(SOLID_FILL,BROWN);
+int eyebrowL_coor[]={x-2,y-23,x-2,y-24,x-3,y-25,x-8,y-21,x-9,y-20,x-8,y-19};
+fillpoly(6,eyebrowL_coor);
+
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,WHITE);
+int irisL_coor[]={x-2,y-23,x-2,y-17,x-5,y-15,x-6,y-20};
+fillpoly(4,irisL_coor);
+
 //hand
-setcolor(EGA_DARKGRAY);
 line(x-2,y+4,x-2,y-4);
 line(x+2,y+4,x+2,y-4);
 circle(x,y+4,2);
