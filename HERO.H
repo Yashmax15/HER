@@ -1,8 +1,5 @@
 //Header file containing HERO drawing and movement
-
-#include<conio.h>
-#include<stdio.h>
-#include<graphics.h>
+#include<LEVEL_01.h>
 
 void hero_f(int x, int y)
 {//face
@@ -263,12 +260,6 @@ line(x+2,y+4,x+2,y-4);
 circle(x,y+4,2);
 }
 
-void chareraser(int a){
-int b[]={0,0,0,479,639,479,639,0,0,0};
-setcolor(a);
-setfillstyle(SOLID_FILL,a) ;
-fillpoly(4,b);
-}
 
 
 void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valminx, int valmaxx, int valminy, int valmaxy){
@@ -279,10 +270,10 @@ while(1){/*1=true, so this loop runs as long as it is not exited manually*/
 	switch (getch())
 	{case 0:
 	  {switch (getch()){
-		   case 75:{if(x>(minx+25)){chareraser(63);x-=5;hero_l(x,y);}break;}
-		   case 77:{if(x<(maxx-25)){chareraser(63);x+=5;hero_r(x,y);}break;}
-		   case 72:{if(y>(miny+65)){chareraser(63);y-=5;hero_b(x,y);}break;}
-		   case 80:{if(y<(maxy-25)){chareraser(63);y+=5;hero_f(x,y);}break;}
+		   case 75:{if(x>(minx+25)){make_room();x-=5;hero_l(x,y);}break;}
+		   case 77:{if(x<(maxx-25)){make_room();x+=5;hero_r(x,y);}break;}
+		   case 72:{if(y>(miny+65)){make_room();y-=5;hero_b(x,y);}break;}
+		   case 80:{if(y<(maxy-25)){make_room();y+=5;hero_f(x,y);}break;}
 			   }break;
 	  }
 	 case 27:{quit=1; break;}
