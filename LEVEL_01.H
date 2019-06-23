@@ -1,7 +1,11 @@
 #include<HERO.h>
 
+int text_coor[]={0,405,0,480,640,480,640,405};
 int ispressedSpace=0;
 char hero_orientation;
+int isreadMail=0;
+int istakenLocket=0;
+
 
 
 void make_room(){
@@ -95,15 +99,121 @@ while(1){/*1=true, so this loop runs as long as it is not exited manually*/
 
 }
 
-void lvl_01()
+
+void dialogue_mail(){
+settextstyle(3,0,1);
+setfillstyle(SOLID_FILL,WHITE);
+fillpoly(4,text_coor);
+outtextxy(10,410,"Mail: Hey,");
+getch();
+outtextxy(10,430,"I bet you don't really remeber. There's no other reason why you still");
+getch();
+outtextxy(10,450,"couldn't come. You were never good at promises. I hope that locket");
+getch();
+fillpoly(4,text_coor);
+outtextxy(10,410,"will remind you the promise you so solemnly gave me.");
+getch();
+outtextxy(10,430,"I wouldn't have contacted you, I didn't mean to intrude, but I really ");
+getch();
+outtextxy(10,450,"need you right now. Things are not... right. I should not have come");
+getch();
+fillpoly(4,text_coor);
+outtextxy(10,410,"here in the first place. I should have listened to you. I hope it is");
+getch();
+outtextxy(10,430,"not too late. Please come to Hotel Tranz, room 203.");
+getch();
+outtextxy(10,450,"I hope you'll find me. I'm putting my faith in you for one last time");
+getch();
+fillpoly(4,text_coor);
+outtextxy(10,410,"Max.");
+getch();
+outtextxy(10,430,"\tYours");
+getch();
+outtextxy(10,450,"\tApril");
+getch();
+fillpoly(4,text_coor);
+outtextxy(10,410,"Oh no! It's April! How can I forget?");
+getch();
+outtextxy(10,430,"I must find the locket. I remember I kept it somewhere around");
+getch();
+outtextxy(10,450,"the bed...");
+getch();
+fillpoly(4,text_coor);
+}
+
+void dialogue_postmail(){
+settextstyle(3,0,1);
+setfillstyle(SOLID_FILL,WHITE);
+fillpoly(4,text_coor);
+outtextxy(10,410,"I must find the locket. I remember I kept it somwhere around");
+getch();
+outtextxy(10,430,"the bed...");
+getch();
+fillpoly(4,text_coor);
+}
+
+void dialogue_wrongDrawer(){
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,WHITE);
+settextstyle(3,0,1);
+fillpoly(4,text_coor);
+outtextxy(10,410,"Nope, not in here.");
+getch();
+fillpoly(4,text_coor);
+}
+
+void dialogue_rightDrawer1(){
+setfillstyle(SOLID_FILL,WHITE);
+settextstyle(3,0,1);
+fillpoly(4,text_coor);
+outtextxy(10,410,"Yes, Here it is. The locket. I must take my flight to New York now.");
+getch();
+fillpoly(4,text_coor);
+}
+
+void dialogue_rightDrawer2(){
+setfillstyle(SOLID_FILL,WHITE);
+settextstyle(3,0,1);
+fillpoly(4,text_coor);
+outtextxy(10,410,"I must take my flight to New York now.");
+getch();
+fillpoly(4,text_coor);
+}
+
+void dialogue_noexit1(){
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,WHITE);
+settextstyle(3,0,1);
+fillpoly(4,text_coor);
+outtextxy(10,410,"I think there's a mail on the PC. Let me check it first.");
+getch();
+fillpoly(4,text_coor);
+
+}
+
+void dialogue_noexit2(){
+setfillstyle(SOLID_FILL,WHITE);
+settextstyle(3,0,1);
+fillpoly(4,text_coor);
+outtextxy(10,410,"I cannot leave now. I must get the locket first!");
+getch();
+fillpoly(4,text_coor);
+}
+
+void lvl_01(int x=120, int y=165, char hero_orientation='b')
 {
 int minx=0,maxx=getmaxx(),miny=0,maxy=400;
 int vminx=0,vmaxx,vminy,vmaxy;
 int quit=0;
 make_room();
-int x=215,y=375;
-hero_b(x,y);
-hero_orientation='b';
+
+switch (hero_orientation){
+case 'l':{hero_l(x,y);break;}
+case 'r':{hero_r(x,y);break;}
+case 'b':{hero_b(x,y);break;}
+case 'f':{hero_f(x,y);break;}
+}
+
 while(1){
 if (y==375){vminy=375;vmaxy=375;minx=0;maxx=getmaxx();
 	if (x<215){miny=310;vminx=0;vmaxx=210;}
@@ -123,9 +233,26 @@ else if(y<=95){
 	if (x<500){minx=210;maxx=getmaxx();vminx=0;vmaxx=495;miny=0;maxy=getmaxy();vminy=0;vmaxy=95;}
 	else {minx=210;maxx=getmaxx();vminx=500;vmaxx=getmaxx();miny=0;maxy=120;vminy=0;vmaxy=95;}
 	      }
+
 move_hero(x,y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+
 if (ispressedSpace==1){
-	if (x==215&&y==385){quit=1;return;}
+	if (x==215&&y==385&&::hero_orientation=='f'){
+		if(isreadMail==0){dialogue_noexit1();}
+		else if(isreadMail==1&&istakenLocket==0){dialogue_noexit2();}
+		else {quit=1;}
+				}
+	else if(x==495&&y==240&&::hero_orientation=='r'){
+		if(isreadMail==0){dialogue_mail();isreadMail=1;}
+		else if(isreadMail==1){dialogue_postmail();}
+				}
+	else if(x==95&&y==150&&::hero_orientation=='l'){
+		if(isreadMail==1&&istakenLocket==0){dialogue_rightDrawer1();istakenLocket=1;}
+		else if(isreadMail==1&&istakenLocket==1){dialogue_rightDrawer2();}
+				}
+	else if(x==155&&y==135&&::hero_orientation=='b'){
+		if(isreadMail==1){dialogue_wrongDrawer();}
+				}
 			}
 if (quit==1){return;}
 
