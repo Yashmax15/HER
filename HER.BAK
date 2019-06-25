@@ -18,57 +18,38 @@
 #include<conio.h>
 #include<stdio.h>
 #include<graphics.h>
-void hero_f(int x, int y)
-{
-line(x-7,y,x+7,y);
-line(x-32,y-21,x-7,y);
-line(x+32,y-21,x+7,y);
-line(x+32,y-21,x+32,y+30);
-line(x-32,y-21,x-32,y+30);
-line(x-32,y+30,x-28,y+30);
-line(x+32,y+30,x+28,y+30);
-line(x-20,y+30,x+20,y+30);
-line(x-32,y-21,x-40,y+1);
-line(x+32,y-21,x+40,y+1);
-circle(x-24,y+30,4);
-circle(x+24,y+30,4);
-circle(x-36,y+3,4);
-circle(x+36,y+3,4);
-line(x-32,y-21,x-32,y-45);
-line(x-32,y-45,x-19,y-63);
-line(x-19,y-63,x-9,y-47);
-line(x-9,y-47,x+9,y-47);
-line(x+9,y-47,x+19,y-63);
-line(x+19,y-63,x+32,y-45);
-line(x+32,y-45,x+32,y-21);
-line(x+32,y-45,x+37,y-45);
-line(x+37,y-45,x+37,y-40);
-line(x+37,y-40,x+32,y-37);
-line(x-32,y-45,x-37,y-45);
-line(x-37,y-45,x-37,y-40);
-line(x-37,y-40,x-32,y-37);
-line(x+37,y-45,x+37,y-77);
-line(x+37,y-77,x+27,y-83);
-line(x+27,y-83,x+17,y-117);
-line(x+17,y-117,x+13,y-107);
-line(x+13,y-107,x+9,y-107);
-line(x+9,y-107,x+3,y-92);
-line(x+3,y-92,x+3,y-102);
-line(x+3,y-102,x-12,y-122);
-line(x-12,y-122,x-20,y-89);
-line(x-20,y-89,x-26,y-93);
-line(x-26,y-93,x-29,y-85);
-line(x-29,y-85,x-29,y-73);
-line(x-29,y-73,x-35,y-73);
-line(x-35,y-73,x-37,y-45);
+#include<fstream.h>
+#include<HERO.h>
+#include<LEVEL_01.h>
+#include<STARTMEN.h>
+
+int SYSTEM_EXIT=0;
+void new_game(){
+intro();
+lvl_01();
 }
 
+void continue_game(){
+switch (CurrentPlayer.lvl_no){
+case 1: {lvl_01();break;}
+		}
+}
 
 void main()
 {clrscr();
-int gd=DETECT, gm;
-initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
-setbkcolor(CYAN);
-int x=120,y=120;
-hero_f(x,y);
-getch();}
+int gd=DETECT,gm;
+//initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
+initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
+setbkcolor(WHITE);
+
+while(!SYSTEM_EXIT){
+	switch(StartMenu()){
+	case 0:{if(load_save())continue_game();break;}
+	case 1:{new_game();break;}
+	case 2:{save('O');break;}
+	case 3:{save('N');break;}
+	case 4:{SYSTEM_EXIT=1;setfillstyle(SOLID_FILL,WHITE);fillpoly(4,background_coor);setcolor(DARKGRAY);outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");break;}
+			   }
+		   }
+getch();
+}
