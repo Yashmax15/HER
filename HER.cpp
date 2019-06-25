@@ -21,6 +21,7 @@
 #include<dos.h>
 #include<fstream.h>
 #include<PLAYER.h>
+#include<HELP.h>
 #include<HERO.h>
 #include<LEVEL_01.h>
 #include<STARTMEN.h>
@@ -49,24 +50,25 @@ void continue_game()
 
     void main()
     {
-        clrscr();
-        int gd=DETECT,gm;
+	clrscr();
+	int gd=DETECT,gm;
 //initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
-        initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
-        setbkcolor(WHITE);
+	initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
+	setbkcolor(WHITE);
 //beginning();
 //intro();
-        while(!SYSTEM_EXIT)
-        {
-            switch(StartMenu())
-            {
-            case 0:
-            {
-                if(load_save())
-                    continue_game();
-                break;
-            }
-            case 1:
+help();
+	while(!SYSTEM_EXIT)
+	{
+	    switch(StartMenu())
+	    {
+	    case 0:
+	    {
+		if(load_save())
+		    continue_game();
+		break;
+	    }
+	    case 1:
             {
                 new_game();
                 break;
