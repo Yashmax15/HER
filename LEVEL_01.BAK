@@ -1,10 +1,10 @@
-#include<HERO.h>
-
-int text_coor[]={0,405,0,480,640,480,640,405};
 int ispressedSpace=0;
-char hero_orientation;
-int isreadMail=0;
-int istakenLocket=0;
+int ispressedEsc=0;
+int text_coor[]={0,405,0,480,640,480,640,405};
+
+void intro(){
+
+}
 
 
 
@@ -13,7 +13,6 @@ setcolor(DARKGRAY);
 setfillstyle(SOLID_FILL,WHITE);
 
 //whitewash
-int background_coor[]={0,0,0,480,640,480,640,0};
 fillpoly(4,background_coor);
 
 //map boundary
@@ -65,36 +64,37 @@ fillpoly(4,back_coor);
 //gate
 int gate_coor[]={190,400,190,410,240,410,240,400};
 fillpoly(4,gate_coor);
-
 }
 
 
+
 void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valminx, int valmaxx, int valminy, int valmaxy){
-switch(hero_orientation){
+switch(CurrentPlayer.hero_orientation){
 case'l': {hero_l(x,y);break;}
 case'r': {hero_r(x,y);break;}
 case'b': {hero_b(x,y);break;}
 case'f': {hero_f(x,y);break;}
 }
-int quit=0;
-while(1){/*1=true, so this loop runs as long as it is not exited manually*/
+while(ispressedSpace==0&&ispressedEsc==0){/*1=true, so this loop runs as long as it is not exited manually*/
 	if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy){
 	switch (getch())
 	{case 0:
 	  {switch (getch()){
-		   case 75:{if(x>(minx+25)){make_room();x-=5;hero_l(x,y);hero_orientation='l';}break;}
-		   case 77:{if(x<(maxx-25)){make_room();x+=5;hero_r(x,y);hero_orientation='r';}break;}
-		   case 72:{if(y>(miny+65)){make_room();y-=5;hero_b(x,y);hero_orientation='b';}break;}
-		   case 80:{if(y<(maxy-25)){make_room();y+=5;hero_f(x,y);hero_orientation='f';}break;}
-			   }break;
+		   case 75:{if(x>(minx+25)){make_room();x-=5;hero_l(x,y);CurrentPlayer.hero_orientation='l';}break;}
+		   case 77:{if(x<(maxx-25)){make_room();x+=5;hero_r(x,y);CurrentPlayer.hero_orientation='r';}break;}
+		   case 72:{if(y>(miny+65)){make_room();y-=5;hero_b(x,y);CurrentPlayer.hero_orientation='b';}break;}
+		   case 80:{if(y<(maxy-25)){make_room();y+=5;hero_f(x,y);CurrentPlayer.hero_orientation='f';}break;}
+			   }save_flag=0;break;
 	  }
-	 case 27:{quit=1; break;}
-	 case 32: {ispressedSpace=1;quit=1;break;}
+	 case 27:{ispressedEsc=1;
+		  if (save_flag==0)
+		  save('O');
+		  break;}
+	 case 32: {ispressedSpace=1;break;}
 	}
-	if (quit==1){return;}                          }
+							   }
 
 	else {return;}
-	if(quit==1){return;}
 	}
 
 }
@@ -200,60 +200,62 @@ getch();
 fillpoly(4,text_coor);
 }
 
-void lvl_01(int x=120, int y=165, char hero_orientation='b')
+void lvl_01()
 {
+CurrentPlayer.lvl_no=1;
 int minx=0,maxx=getmaxx(),miny=0,maxy=400;
 int vminx=0,vmaxx,vminy,vmaxy;
 int quit=0;
 make_room();
 
-switch (hero_orientation){
-case 'l':{hero_l(x,y);break;}
-case 'r':{hero_r(x,y);break;}
-case 'b':{hero_b(x,y);break;}
-case 'f':{hero_f(x,y);break;}
+switch (CurrentPlayer.hero_orientation){
+case 'l':{hero_l(CurrentPlayer.hero_x,CurrentPlayer.hero_y);break;}
+case 'r':{hero_r(CurrentPlayer.hero_x,CurrentPlayer.hero_y);break;}
+case 'b':{hero_b(CurrentPlayer.hero_x,CurrentPlayer.hero_y);break;}
+case 'f':{hero_f(CurrentPlayer.hero_x,CurrentPlayer.hero_y);break;}
 }
 
 while(1){
-if (y==375){vminy=375;vmaxy=375;minx=0;maxx=getmaxx();
-	if (x<215){miny=310;vminx=0;vmaxx=210;}
-	else if (x==215){miny=310;maxy=405;vminx=215;vmaxx=215;}
-	else if (x>215&&x<230){miny=310;maxy=400;vminx=220;vmaxx=225;}
-	else if (x>=230&&x<500){miny=0;maxy=400;vminx=230;vmaxx=500;}
+if (CurrentPlayer.hero_y==375){vminy=375;vmaxy=375;minx=0;maxx=getmaxx();
+	if (CurrentPlayer.hero_x<215){miny=310;vminx=0;vmaxx=210;}
+	else if (CurrentPlayer.hero_x==215){miny=310;maxy=405;vminx=215;vmaxx=215;}
+	else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230){miny=310;maxy=400;vminx=220;vmaxx=225;}
+	else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500){miny=0;maxy=400;vminx=230;vmaxx=500;}
 	else {miny=310;maxy=400;vminx=500;vmaxx=getmaxx();}
 	    }
-else if(y>375){minx=190;maxx=240;miny=310;maxy=410;vminx=190;vmaxx=240;vminy=380;vmaxy=410;}
-else if(y<375&&y>165){minx=205;maxx=520;vminx=0;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=170;vmaxy=370;}
-else if(y<=165&&y>135){minx=70;maxx=520;
-	if(x>70&&x<225){vminx=0;vmaxx=220;miny=70;maxy=190;vminy=0;vmaxy=getmaxy();}
-	else if(x>=225){vminx=225;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=140;vmaxy=165;}
+else if(CurrentPlayer.hero_y>375){minx=190;maxx=240;miny=310;maxy=410;vminx=190;vmaxx=240;vminy=380;vmaxy=410;}
+else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165){minx=205;maxx=520;vminx=0;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=170;vmaxy=370;}
+else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135){minx=70;maxx=520;
+	if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225){vminx=0;vmaxx=220;miny=70;maxy=190;vminy=0;vmaxy=getmaxy();}
+	else if(CurrentPlayer.hero_x>=225){vminx=225;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=140;vmaxy=165;}
 		      }
-else if(y<=135&&y>95){minx=210;maxx=520;vminx=0;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=100;vmaxy=135;}
-else if(y<=95){
-	if (x<500){minx=210;maxx=getmaxx();vminx=0;vmaxx=495;miny=0;maxy=getmaxy();vminy=0;vmaxy=95;}
+else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95){minx=210;maxx=520;vminx=0;vmaxx=getmaxx();miny=0;maxy=getmaxy();vminy=100;vmaxy=135;}
+else if(CurrentPlayer.hero_y<=95){
+	if (CurrentPlayer.hero_x<500){minx=210;maxx=getmaxx();vminx=0;vmaxx=495;miny=0;maxy=getmaxy();vminy=0;vmaxy=95;}
 	else {minx=210;maxx=getmaxx();vminx=500;vmaxx=getmaxx();miny=0;maxy=120;vminy=0;vmaxy=95;}
 	      }
 
-move_hero(x,y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+move_hero(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
 
-if (ispressedSpace==1){
-	if (x==215&&y==385&&::hero_orientation=='f'){
-		if(isreadMail==0){dialogue_noexit1();}
-		else if(isreadMail==1&&istakenLocket==0){dialogue_noexit2();}
+if (ispressedSpace){
+	if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&::CurrentPlayer.hero_orientation=='f'){
+		if(CurrentPlayer.isreadMail==0){dialogue_noexit1();}
+		else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0){dialogue_noexit2();}
 		else {quit=1;}
 				}
-	else if(x==495&&y==240&&::hero_orientation=='r'){
-		if(isreadMail==0){dialogue_mail();isreadMail=1;}
-		else if(isreadMail==1){dialogue_postmail();}
+	else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y==240&&::CurrentPlayer.hero_orientation=='r'){
+		if(CurrentPlayer.isreadMail==0){dialogue_mail();CurrentPlayer.isreadMail=1;}
+		else if(CurrentPlayer.isreadMail==1){dialogue_postmail();}
 				}
-	else if(x==95&&y==150&&::hero_orientation=='l'){
-		if(isreadMail==1&&istakenLocket==0){dialogue_rightDrawer1();istakenLocket=1;}
-		else if(isreadMail==1&&istakenLocket==1){dialogue_rightDrawer2();}
+	else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y==150&&::CurrentPlayer.hero_orientation=='l'){
+		if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0){dialogue_rightDrawer1();CurrentPlayer.istakenLocket=1;}
+		else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==1){dialogue_rightDrawer2();}
 				}
-	else if(x==155&&y==135&&::hero_orientation=='b'){
-		if(isreadMail==1){dialogue_wrongDrawer();}
+	else if(CurrentPlayer.hero_x==155&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b'){
+		if(CurrentPlayer.isreadMail==1){dialogue_wrongDrawer();}
 				}
 			}
+if (ispressedEsc||ispressedSpace){quit=1;}
 if (quit==1){return;}
 
 	}
