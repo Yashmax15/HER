@@ -19,7 +19,7 @@
 #include<stdio.h>
 #include<graphics.h>
 #include<fstream.h>
-#include<Player_DATA.h>
+#include<PLAYER.h>
 #include<HERO.h>
 #include<LEVEL_01.h>
 #include<STARTMEN.h>
