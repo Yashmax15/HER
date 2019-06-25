@@ -1,4 +1,4 @@
-//Header file containing plaer and its related functions
+//Header file containing player and its related functions
 
 int background_coor[]= {0,0,0,480,640,480,640,0};
 
