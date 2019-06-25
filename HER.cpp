@@ -39,11 +39,13 @@ void continue_game()
     {
     case 1:
     {
-        lvl_01();
-        break;
+	lvl_01();
+	break;
     }
-//case 2: {lvl_02();break;}		}
+//case 2: {lvl_02();break;}
     }
+
+}
 
     void main()
     {
