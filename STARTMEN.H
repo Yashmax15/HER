@@ -1,146 +1,269 @@
 //Startmenu design
 
-void NGbox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int NGbox_coor[]={250,220,390,220,390,230,250,230,250,220};
-outtextxy(320,225,"New Game");
-drawpoly(5,NGbox_coor);
+void NGbox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int NGbox_coor[]= {250,220,390,220,390,230,250,230,250,220};
+    outtextxy(320,225,"New Game");
+    drawpoly(5,NGbox_coor);
 }
 
-void Sbox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int Sbox_coor[]={250,235,390,235,390,245,250,245,250,235};
-outtextxy(320,240,"Save");
-drawpoly(5,Sbox_coor);
+void Sbox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int Sbox_coor[]= {250,235,390,235,390,245,250,245,250,235};
+    outtextxy(320,240,"Save");
+    drawpoly(5,Sbox_coor);
 }
 
-void Ebox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int Ebox_coor[]={250,250,390,250,390,260,250,260,250,250};
-outtextxy(320,255,"Exit");
-drawpoly(5,Ebox_coor);
+void Ebox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int Ebox_coor[]= {250,250,390,250,390,260,250,260,250,250};
+    outtextxy(320,255,"Exit");
+    drawpoly(5,Ebox_coor);
 }
 
-void Cbox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int Cbox_coor[]={250,205,390,205,390,215,250,215,250,205};
-outtextxy(320,210,"Continue");
-drawpoly(5,Cbox_coor);
+void Cbox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int Cbox_coor[]= {250,205,390,205,390,215,250,215,250,205};
+    outtextxy(320,210,"Continue");
+    drawpoly(5,Cbox_coor);
 }
 
-void NSbox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int NSbox_coor[]={400,240,540,240,540,250,400,250,400,240};
-outtextxy(470,245,"New Save");
-drawpoly(5,NSbox_coor);
+void NSbox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int NSbox_coor[]= {400,240,540,240,540,250,400,250,400,240};
+    outtextxy(470,245,"New Save");
+    drawpoly(5,NSbox_coor);
 }
 
-void OSbox(int color=63){
-settextjustify(1,1);
-setcolor(color);
-settextstyle(0,0,0);
-int OSbox_coor[]={400,225,540,225,540,235,400,235,400,225};
-outtextxy(470,230,"Old Save");
-drawpoly(5,OSbox_coor);
+void OSbox(int color=63)
+{
+    settextjustify(1,1);
+    setcolor(color);
+    settextstyle(0,0,0);
+    int OSbox_coor[]= {400,225,540,225,540,235,400,235,400,225};
+    outtextxy(470,230,"Old Save");
+    drawpoly(5,OSbox_coor);
 }
 
-void selection(int y){
-if(y==225){NGbox(LIGHTRED);}
-else if(y==240){Sbox(LIGHTRED);}
-else if(y==210){Cbox(LIGHTRED);}
-else if(y==255){Ebox(LIGHTRED);}
-else if(y==230){OSbox(LIGHTRED);}
-else if(y==245){NSbox(LIGHTRED);}
+void selection(int y)
+{
+    if(y==225)
+    {
+        NGbox(LIGHTRED);
+    }
+    else if(y==240)
+    {
+        Sbox(LIGHTRED);
+    }
+    else if(y==210)
+    {
+        Cbox(LIGHTRED);
+    }
+    else if(y==255)
+    {
+        Ebox(LIGHTRED);
+    }
+    else if(y==230)
+    {
+        OSbox(LIGHTRED);
+    }
+    else if(y==245)
+    {
+        NSbox(LIGHTRED);
+    }
 }
 
-void make_menu(){
-setcolor(WHITE);
-setfillstyle(SOLID_FILL,DARKGRAY);
-fillpoly(4,background_coor);
-int boundary_coor[]={248,262,392,262,392,203,248,203,248,262};
-Cbox();
-NGbox();
-Ebox();
-Sbox();
-drawpoly(5,boundary_coor);
+void make_menu()
+{
+    setcolor(WHITE);
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,background_coor);
+    int boundary_coor[]= {248,262,392,262,392,203,248,203,248,262};
+    Cbox();
+    NGbox();
+    Ebox();
+    Sbox();
+    drawpoly(5,boundary_coor);
 }
 
-void make_menuSave(){
-setcolor(WHITE);
-setfillstyle(SOLID_FILL,DARKGRAY);
-fillpoly(4,background_coor);
-int boundary_coor[]={248,262,392,262,392,203,248,203,248,262};
-Cbox();
-NGbox();
-Ebox();
-Sbox();
-NSbox();
-OSbox();
-drawpoly(5,boundary_coor);
+void make_menuSave()
+{
+    setcolor(WHITE);
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,background_coor);
+    int boundary_coor[]= {248,262,392,262,392,203,248,203,248,262};
+    Cbox();
+    NGbox();
+    Ebox();
+    Sbox();
+    NSbox();
+    OSbox();
+    drawpoly(5,boundary_coor);
 }
 
 int move_cursor()
-{int y=225;
-while (ispressedSpace==0){
-	switch (getch())
-	{case 0:
-	  {switch (getch()){
-		   case 72:{if (y==230||y==245){make_menuSave();if (y==245)y-=15;}else {make_menu();if(y>210)y-=15;}selection(y);break;}
-		   case 80:{if (y==230||y==245){make_menuSave();if (y==230)y+=15;}else {make_menu();if(y<255)y+=15;}selection(y);break;}
-		   case 77:{if (y==240){make_menuSave();y-=10;selection(y);}break;}
-		   case 75:{if (y==230||y==245){make_menu();y=240;selection(y);}break;}
-			   }break;
-	  }
-	 case 32:{ispressedSpace=1;break;}
-	}
-			 }
-ispressedSpace=0;
-return y;
+{
+    int y=225;
+    while (ispressedSpace==0)
+    {
+        switch (getch())
+        {
+        case 0:
+        {
+            switch (getch())
+            {
+            case 72:
+            {
+                if (y==230||y==245)
+                {
+                    make_menuSave();
+                    if (y==245)
+                        y-=15;
+                }
+                else
+                {
+                    make_menu();
+                    if(y>210)
+                        y-=15;
+                }
+                selection(y);
+                break;
+            }
+            case 80:
+            {
+                if (y==230||y==245)
+                {
+                    make_menuSave();
+                    if (y==230)
+                        y+=15;
+                }
+                else
+                {
+                    make_menu();
+                    if(y<255)
+                        y+=15;
+                }
+                selection(y);
+                break;
+            }
+            case 77:
+            {
+                if (y==240)
+                {
+                    make_menuSave();
+                    y-=10;
+                    selection(y);
+                }
+                break;
+            }
+            case 75:
+            {
+                if (y==230||y==245)
+                {
+                    make_menu();
+                    y=240;
+                    selection(y);
+                }
+                break;
+            }
+            }
+            break;
+        }
+        case 32:
+        {
+            ispressedSpace=1;
+            break;
+        }
+        }
+    }
+    ispressedSpace=0;
+    return y;
 }
 
-int load_save(){
-int flag=0;
-int save_no;
-setfillstyle(SOLID_FILL,DARKGRAY);
-fillpoly(4,background_coor);
-settextjustify(1,1);
-settextstyle(0,0,0);
-setcolor(WHITE);
-outtextxy(320,30,"Enter the save number: ");
-save_no=getch();
-ifstream f2("Player.dat",ios::binary);
-f2.seekg(0,ios::beg);
-while(f2.read((char*)&Temp,sizeof(Player))){
-if (Temp.save_no==save_no)
-{flag=1;break;}
-	    }
+int load_save()
+{
+    int flag=0;
+    int save_no;
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,background_coor);
+    settextjustify(1,1);
+    settextstyle(0,0,0);
+    setcolor(WHITE);
+    outtextxy(320,30,"Enter the save number: ");
+    save_no=getch();
+    ifstream f2("Player.dat",ios::binary);
+    f2.seekg(0,ios::beg);
+    while(f2.read((char*)&Temp,sizeof(Player)))
+    {
+        if (Temp.save_no==save_no)
+        {
+            flag=1;
+            break;
+        }
+    }
 
-f2.close();
-if(flag==0){outtextxy(320,60,"No such save found. Press any key to continue...");getch();return 0;}
-else {CurrentPlayer=Temp;return 1;}
+    f2.close();
+    if(flag==0)
+    {
+        outtextxy(320,60,"No such save found. Press any key to continue...");
+        getch();
+        return 0;
+    }
+    else
+    {
+        CurrentPlayer=Temp;
+        return 1;
+    }
 
 }
 
-int StartMenu(){
-int select=0;
-make_menu();
-selection(225);
-switch(move_cursor()){
-case 210:{select=0;break;}
-case 225:{select=1;break;}
-case 230:{select=2;break;}
-case 245:{select=3;break;}
-case 255:{select=4;break;}
-		     }
-return select;
+int StartMenu()
+{
+    int select=0;
+    make_menu();
+    selection(225);
+    switch(move_cursor())
+    {
+    case 210:
+    {
+        select=0;
+        break;
+    }
+    case 225:
+    {
+        select=1;
+        break;
+    }
+    case 230:
+    {
+        select=2;
+        break;
+    }
+    case 245:
+    {
+        select=3;
+        break;
+    }
+    case 255:
+    {
+        select=4;
+        break;
+    }
+    }
+    return select;
 }
