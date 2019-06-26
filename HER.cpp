@@ -20,6 +20,7 @@
 #include<graphics.h>
 #include<dos.h>
 #include<fstream.h>
+#include<string.h>
 #include<PLAYER.h>
 #include<HELP.h>
 #include<HERO.h>
@@ -30,6 +31,7 @@ int SYSTEM_EXIT=0;
 
 void new_game()
 {
+    help();
     intro();
     lvl_01();
 }
@@ -40,8 +42,8 @@ void continue_game()
     {
     case 1:
     {
-        lvl_01();
-        break;
+	lvl_01();
+	break;
     }
 //case 2: {lvl_02();break;}
     }
@@ -55,28 +57,26 @@ void main()
 //initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
     initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
     setbkcolor(DARKGRAY);
-//beginning();
-//intro();
-//help();
+    beginning();
     while(!SYSTEM_EXIT)
     {
-        switch(StartMenu())
-        {
-        case 0:
-        {
-            if(load_save())
-                continue_game();
-            break;
-        }
-        case 1:
-        {
-            new_game();
-            break;
-        }
-        case 2:
-        {
-            save('O');
-            break;
+	switch(StartMenu())
+	{
+	case 0:
+	{
+	    if(load_save())
+		continue_game();
+	    break;
+	}
+	case 1:
+	{
+	    new_game();
+	    break;
+	}
+	case 2:
+	{
+	    save('O');
+	    break;
         }
         case 3:
         {
