@@ -202,12 +202,11 @@ int load_save()
     setfillstyle(SOLID_FILL,DARKGRAY);
     fillpoly(4,background_coor);
     settextjustify(1,1);
-    settextstyle(0,0,0);
+    settextstyle(3,0,1);
     setcolor(WHITE);
     outtextxy(320,30,"Enter the save number: ");
     save_no=getch();
-    ifstream f2("Player.dat",ios::binary);
-    f2.seekg(0,ios::beg);
+    ifstream f2("C:\\TC\\HER\\Player.dat",ios::binary);
     while(f2.read((char*)&Temp,sizeof(Player)))
     {
         if (Temp.save_no==save_no)
@@ -216,7 +215,6 @@ int load_save()
             break;
         }
     }
-
     f2.close();
     if(flag==0)
     {
@@ -227,6 +225,7 @@ int load_save()
     else
     {
         CurrentPlayer=Temp;
+        outtextxy(320,60,"Save loaded. Press any key to continue...");
         return 1;
     }
 

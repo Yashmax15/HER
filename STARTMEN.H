@@ -195,42 +195,6 @@ int move_cursor()
     return y;
 }
 
-int load_save()
-{
-    int flag=0;
-    int save_no;
-    setfillstyle(SOLID_FILL,DARKGRAY);
-    fillpoly(4,background_coor);
-    settextjustify(1,1);
-    settextstyle(0,0,0);
-    setcolor(WHITE);
-    outtextxy(320,30,"Enter the save number: ");
-    save_no=getch();
-    ifstream f2("Player.dat",ios::binary);
-    f2.seekg(0,ios::beg);
-    while(f2.read((char*)&Temp,sizeof(Player)))
-    {
-        if (Temp.save_no==save_no)
-        {
-            flag=1;
-            break;
-        }
-    }
-
-    f2.close();
-    if(flag==0)
-    {
-        outtextxy(320,60,"No such save found. Press any key to continue...");
-        getch();
-        return 0;
-    }
-    else
-    {
-        CurrentPlayer=Temp;
-        return 1;
-    }
-
-}
 
 int StartMenu()
 {

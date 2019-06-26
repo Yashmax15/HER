@@ -1,5 +1,4 @@
 int ispressedSpace=0;
-int ispressedSpace=0;
 int ispressedEsc=0;
 int text_coor[]= {0,405,0,480,640,480,640,405};
 
@@ -25,7 +24,6 @@ void beginning()
 
 void intro()
 {
-    beginning();
     setcolor(RED);
     fillpoly(4,background_coor);
     settextjustify(0,1);
@@ -143,7 +141,7 @@ void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valmi
     case'b': {hero_b(x,y);break;}
         case'f': {hero_f(x,y);break;}
             }
-    while(ispressedSpace==0&&ispressedEsc==0) /*1=true, so this loop runs as long as it is not exited manually*/
+    while(ispressedSpace==1&&ispressedEsc==0) /*1=true, so this loop runs as long as it is not exited manually*/
     {
         if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
         {
@@ -540,7 +538,7 @@ void lvl_01()
                 }
             }
         }
-        if (ispressedEsc||ispressedSpace)
+        if (ispressedEsc)
         {
             quit=1;
         }

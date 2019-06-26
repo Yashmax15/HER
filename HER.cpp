@@ -40,59 +40,59 @@ void continue_game()
     {
     case 1:
     {
-	lvl_01();
-	break;
+        lvl_01();
+        break;
     }
 //case 2: {lvl_02();break;}
     }
 
 }
 
-    void main()
-    {
-	clrscr();
-	int gd=DETECT,gm;
+void main()
+{
+    clrscr();
+    int gd=DETECT,gm;
 //initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
-	initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
-	setbkcolor(WHITE);
+    initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
+    setbkcolor(DARKGRAY);
 //beginning();
 //intro();
-help();
-	while(!SYSTEM_EXIT)
-	{
-	    switch(StartMenu())
-	    {
-	    case 0:
-	    {
-		if(load_save())
-		    continue_game();
-		break;
-	    }
-	    case 1:
-            {
-                new_game();
-                break;
-            }
-            case 2:
-            {
-                save('O');
-                break;
-            }
-            case 3:
-            {
-                save('N');
-                break;
-            }
-            case 4:
-            {
-                SYSTEM_EXIT=1;
-                setfillstyle(SOLID_FILL,WHITE);
-                fillpoly(4,background_coor);
-                setcolor(DARKGRAY);
-                outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
-                break;
-            }
-            }
+//help();
+    while(!SYSTEM_EXIT)
+    {
+        switch(StartMenu())
+        {
+        case 0:
+        {
+            if(load_save())
+                continue_game();
+            break;
         }
-        getch();
+        case 1:
+        {
+            new_game();
+            break;
+        }
+        case 2:
+        {
+            save('O');
+            break;
+        }
+        case 3:
+        {
+            save('N');
+            break;
+        }
+        case 4:
+        {
+            SYSTEM_EXIT=1;
+            setfillstyle(SOLID_FILL,WHITE);
+            fillpoly(4,background_coor);
+            setcolor(DARKGRAY);
+            outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
+            break;
+        }
+        }
     }
+    getch();
+}
