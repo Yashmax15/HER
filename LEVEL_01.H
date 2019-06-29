@@ -1,7 +1,4 @@
-int ispressedSpace=0;
-int ispressedEsc=0;
-int text_coor[]= {0,405,0,480,640,480,640,405};
-
+//Level one
 
 void beginning()
 {
@@ -12,13 +9,13 @@ void beginning()
     setcolor(DARKGRAY);
     settextstyle(1,0,8);
     delay(1500);
-    outtextxy(320,240,"HER");
+    outtextxy(320,220,"HER");
 
 
     delay(1800);
     settextstyle(3,0,3);
     setcolor(LIGHTGRAY);
-    outtextxy(400,290,"...A Tale Unsung");
+    outtextxy(400,270,"...A Tale Unsung");
     getch();
 }
 
@@ -223,7 +220,7 @@ void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valmi
 }
 
 void dialogue_start()
-{
+{   setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
@@ -497,7 +494,7 @@ void lvl_01()
 		    quit=1;
 		}
 	    }
-	    else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y==240&&::CurrentPlayer.hero_orientation=='r')
+	    else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y>=225&&CurrentPlayer.hero_y<=250&&::CurrentPlayer.hero_orientation=='r')
 	    {
 		if(CurrentPlayer.isreadMail==0)
 		{
@@ -509,7 +506,7 @@ void lvl_01()
 		    dialogue_postmail();
 		}
 	    }
-	    else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y==150&&::CurrentPlayer.hero_orientation=='l')
+	    else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&::CurrentPlayer.hero_orientation=='l')
 	    {
 		if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
 		{
@@ -521,7 +518,7 @@ void lvl_01()
 		    dialogue_rightDrawer2();
 		}
 	    }
-	    else if(CurrentPlayer.hero_x==155&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
+	    else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
 	    {
 		if(CurrentPlayer.isreadMail==1)
 		{
@@ -533,7 +530,6 @@ void lvl_01()
 	if (ispressedEsc)
 	{
 	    quit=1;
-	    ispressedEsc=0;
 	}
 	if (quit==1)
 	{

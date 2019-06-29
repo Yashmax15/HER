@@ -2,6 +2,9 @@
 
 int background_coor[]= {0,0,0,480,640,480,640,0};
 int save_flag=0;
+int ispressedSpace=0;
+int ispressedEsc=0;
+int text_coor[]= {0,405,0,480,640,480,640,405};
 
 class Player
 {
@@ -10,6 +13,9 @@ public:
     char hero_orientation;
     int isreadMail;
     int istakenLocket;
+    int receptionClue;
+    int isseenSafe;
+    int isreadLetter;
     int hero_x;
     int hero_y;
     int lvl_no;
@@ -19,6 +25,9 @@ public:
 	hero_y=165;
 	isreadMail=0;
 	istakenLocket=0;
+	receptionClue=0;
+	isseenSafe=0;
+	isreadLetter=0;
 	hero_orientation='b';
 	lvl_no=1;
     }

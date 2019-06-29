@@ -24,7 +24,10 @@
 #include<PLAYER.h>
 #include<HELP.h>
 #include<HERO.h>
+#include<RECMAN.h>
 #include<LEVEL_01.h>
+#include<LEVEL_02.h>
+#include<LEVEL_03.h>
 #include<STARTMEN.h>
 
 int SYSTEM_EXIT=0;
@@ -33,7 +36,14 @@ void new_game()
 {
     help();
     intro();
-    lvl_01();
+    if(1){
+    lvl_01();if(ispressedEsc==1){ispressedEsc=0;return;}
+    lvl12_bridge();
+    lvl_02();if(ispressedEsc==1){ispressedEsc=0;return;}
+    lvl23_bridge();
+    lvl_03();if(ispressedEsc==1){ispressedEsc=0;return;}
+    ending();
+    }
 }
 
 void continue_game()
@@ -42,10 +52,24 @@ void continue_game()
     {
     case 1:
     {
-	lvl_01();
+	lvl_01();if(ispressedEsc==1){ispressedEsc=0;break;}
+	lvl12_bridge();
+	lvl_02();if(ispressedEsc==1){ispressedEsc=0;break;}
+	lvl23_bridge();
+	lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
+	ending();
 	break;
+
     }
-//case 2: {lvl_02();break;}
+    case 2: {lvl_02();if(ispressedEsc==1){ispressedEsc=0;break;}
+	     lvl23_bridge();
+	     lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
+	     ending();
+	     break;}
+
+    case 3: {lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
+	     ending();
+	     break;}
     }
 
 }
@@ -77,22 +101,22 @@ void main()
 	{
 	    save('O');
 	    break;
-        }
-        case 3:
-        {
-            save('N');
-            break;
-        }
-        case 4:
-        {
-            SYSTEM_EXIT=1;
-            setfillstyle(SOLID_FILL,WHITE);
-            fillpoly(4,background_coor);
-            setcolor(DARKGRAY);
-            outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
-            break;
-        }
-        }
+	}
+	case 3:
+	{
+	    save('N');
+	    break;
+	}
+	case 4:
+	{
+	    SYSTEM_EXIT=1;
+	    setfillstyle(SOLID_FILL,WHITE);
+	    fillpoly(4,background_coor);
+	    setcolor(DARKGRAY);
+	    outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
+	    break;
+	}
+	}
     }
     getch();
 }

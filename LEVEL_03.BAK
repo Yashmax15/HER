@@ -1,0 +1,666 @@
+//level 3
+
+void lvl23_bridge(){
+    setcolor(RED);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,background_coor);
+    settextjustify(0,1);
+    settextstyle(1,0,1);
+    outtextxy(10,30,"So there I was, in the room which once belonged to her.");
+    getch();
+    outtextxy(10,50,"Room number 203. It was a very quiet place for a hotel and");
+    getch();
+    outtextxy(10,70,"oddly empty.");
+    getch();
+    outtextxy(10,110,"But I had no intentions of inquiring why. All I knew was that");
+    getch();
+    outtextxy(10,130,"April had stayed here and probably I would find something here");
+    getch();
+    outtextxy(10,150,"which would tell me where she was.");
+    getch();
+    outtextxy(10,190,"It was a dimly lit room with not much ventilation. There was a");
+    getch();
+    outtextxy(10,210,"window but no sun due to the high rising buildings. I had to");
+    getch();
+    outtextxy(10,230,"switch on the lights to see clearly. This room was familiar.");
+    getch();
+    outtextxy(10,250,"It was... A REPLICA OF MINE!");
+    getch();
+}
+
+void make_Aprilroom()
+{
+    setcolor(DARKGRAY);
+    setfillstyle(SOLID_FILL,WHITE);
+
+//whitewash
+    fillpoly(4,background_coor);
+
+//map boundary
+    setfillstyle(SOLID_FILL,WHITE);
+    int floor_coor[]= {0,400,0,0,640,0,640,400};
+    fillpoly(4,floor_coor);
+
+//bed
+    int bedFoundation_coor[]= {0,190,205,190,205,310,0,310};
+    int bedSheet_coor[]= {205,190,205,310,100,310,100,190};
+    int bedFold_coor[]= {100,310,100,190,61,190,61,310};
+    int pillow_coor[]= {40,220,40,280,12,280,12,220};
+    setfillstyle(SOLID_FILL,LIGHTCYAN);
+    fillpoly(4,bedFoundation_coor);
+    setfillstyle(SOLID_FILL,GREEN);
+    fillpoly(4,bedSheet_coor);
+    setfillstyle(SOLID_FILL,MAGENTA);
+    fillpoly(4,bedFold_coor);
+    setfillstyle(SOLID_FILL,MAGENTA);
+    fillpoly(4,pillow_coor);
+
+//drawer
+    int drawer_coor[]= {0,180,70,180,70,0,0,0};
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,drawer_coor);
+
+//cupboard
+    int cupboard_coor[]= {80,0,210,0,210,70,80,70};
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,cupboard_coor);
+
+//carpet
+    int carpetBase_coor[]= {460,390,220,390,220,20,460,20};
+    int innerBase_coor[]= {440,370,240,370,240,40,440,40};
+    int tri1_coor[]= {300,40,240,40,240,100};
+    int tri2_coor[]= {380,40,440,40,440,100};
+    int tri3_coor[]= {240,310,240,370,300,370};
+    int tri4_coor[]= {440,310,380,370,440,370};
+    setfillstyle(SOLID_FILL,LIGHTMAGENTA);
+    fillpoly(4,carpetBase_coor);
+    setfillstyle(SOLID_FILL,LIGHTGREEN);
+    fillpoly(4,innerBase_coor);
+    setfillstyle(SOLID_FILL,YELLOW);
+    fillpoly(3,tri1_coor);
+    fillpoly(3,tri2_coor);
+    fillpoly(3,tri3_coor);
+    fillpoly(3,tri4_coor);
+
+//computer
+    int monitor_coor[]= {560,180,600,180,600,260,560,260};
+    int back_coor[]= {600,180,620,200,620,240,600,260};
+    int table_coor[]= {640,120,640,320,520,320,520,120};
+    int chair_coor[]= {520,160,480,160,480,280,520,280};
+    setfillstyle(SOLID_FILL,LIGHTBLUE);
+    fillpoly(4,table_coor);
+    setfillstyle(SOLID_FILL,YELLOW);
+    fillpoly(4,chair_coor);
+    setfillstyle(SOLID_FILL,LIGHTGRAY);
+    fillpoly(4,monitor_coor);
+    setfillstyle(SOLID_FILL,DARKGRAY);
+    fillpoly(4,back_coor);
+
+//gate
+    int gate_coor[]= {190,400,190,410,240,410,240,400};
+    setfillstyle(SOLID_FILL,BROWN);
+    fillpoly(4,gate_coor);
+}
+
+void dialogue_enterRoom(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"I will surely find something here.");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_floorsafe1(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"It is a... Floor Safe?");
+    getch();
+    outtextxy(10,430,"Why would a Hotel room have a Floor Safe?");
+    getch();
+    outtextxy(10,450,"It is locked. It requires an 8-digit passcode.");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_floorsafe2(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"The numbers are strange on this panel");
+    getch();
+    outtextxy(10,430,"It only has 0,1,2,4 and 5");
+    getch();
+    outtextxy(10,450,"The panel is also of the form _ _ / _ _ / _ _ _ _");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_noexit(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"I've come this far.");
+    getch();
+    outtextxy(10,430,"I cannot give up now!");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_noexitS(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"I've got to find the key! It must be somewhere around!");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_keyCode(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"It's an empty drawer...");
+    getch();
+    outtextxy(10,430,"Wait, there are numbers sketched on it.");
+    getch();
+    outtextxy(10,450,"15/04/2002");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"It's APRIL's birth-date! Let me try this as the key.");
+    getch();
+    fillpoly(4,text_coor);
+}
+
+void dialogue_TheLetter(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"1... 5... 0... 4... 2... 0... 0... 2...");
+    getch();
+    outtextxy(10,430,"YES! It worked! Let's see what it has.");
+    getch();
+    outtextxy(10,450,"A Letter. From... April");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"Letter: Max,");
+    getch();
+    outtextxy(10,430,"If you're reading this, then I have not been able to stay and wait for");
+    getch();
+    outtextxy(10,450,"you to come.");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"I came to New York to find meaning to my life. But things didn't");
+    getch();
+    outtextxy(10,430,"turn out all good. Life in the York wasn't easy. This hotel was the");
+    getch();
+    outtextxy(10,450,"only place which would keep me. I had to work here to earn my stay.");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"It was hard. But he promised me that everything would change.");
+    getch();
+    outtextxy(10,430,"He said that he would fix it. He said that The ALPHA had helped many");
+    getch();
+    outtextxy(10,450,"poor souls find meaning to this life. Never did I know that I was");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"involving myself in such deep a trouble.");
+    getch();
+    outtextxy(10,430,"If you still wish to find me, look for The ALPHA.");
+    getch();
+    outtextxy(10,450,"Beware, it won't be easy. He is not someone you would want to mess");
+    getch();
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"with. So if you still want to go back, remember, I'd still love you.");
+    getch();
+    outtextxy(10,430,"\tYours");
+    getch();
+    outtextxy(10,450,"\tApril");
+    getch();
+    fillpoly(4,text_coor);
+
+}
+
+void dialogue_noexitL(){
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"I've got the key, I just need to enter it.");
+    getch();
+    fillpoly(4,text_coor);
+
+}
+
+void move_hero3(int &x, int &y, int minx, int maxx, int miny, int maxy, int valminx, int valmaxx, int valminy, int valmaxy)
+{
+    switch(CurrentPlayer.hero_orientation)
+    {
+    case'l':
+    {
+	hero_l(x,y);
+	break;
+    }
+    case'r':
+    {
+	hero_r(x,y);
+	break;
+    }
+    case'b': {hero_b(x,y);break;}
+	case'f': {hero_f(x,y);break;}
+	    }
+    while(ispressedSpace==0&&ispressedEsc==0)
+    {
+	if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
+	{
+	    switch (getch())
+	    {
+	    case 0:
+	    {
+		switch (getch())
+		{
+		case 75:
+		{
+		    if(x>(minx+25))
+		    {
+			make_Aprilroom();
+			x-=5;
+			hero_l(x,y);
+			CurrentPlayer.hero_orientation='l';
+		    }
+		    break;
+		}
+		case 77:
+		{
+		    if(x<(maxx-25))
+		    {
+			make_Aprilroom();
+			x+=5;
+			hero_r(x,y);
+			CurrentPlayer.hero_orientation='r';
+		    }
+		    break;
+		}
+		case 72:
+		{
+		    if(y>(miny+65))
+		    {
+			make_Aprilroom();
+			y-=5;
+			hero_b(x,y);
+			CurrentPlayer.hero_orientation='b';
+		    }
+		    break;
+		}
+		case 80:
+		{
+		    if(y<(maxy-25))
+		    {
+			make_Aprilroom();
+			y+=5;
+			hero_f(x,y);
+			CurrentPlayer.hero_orientation='f';
+		    }
+		    break;
+		}
+		}
+		save_flag=0;
+		break;
+	    }
+	    case 27:
+	    {
+		ispressedEsc=1;
+		if (save_flag==0)
+		    save('O');
+		break;
+	    }
+	    case 32:
+	    {
+		ispressedSpace=1;
+		break;
+	    }
+	    }
+	}
+
+	else
+	{
+	    return;
+	}
+    }
+
+}
+
+
+void lvl_03()
+{
+    CurrentPlayer.lvl_no=3;
+    CurrentPlayer.hero_x=215;
+    CurrentPlayer.hero_y=375;
+    CurrentPlayer.hero_orientation='b';
+    int minx=0,maxx=getmaxx(),miny=0,maxy=400;
+    int vminx=0,vmaxx,vminy,vmaxy;
+    int quit=0;
+    make_Aprilroom();
+    if (CurrentPlayer.isseenSafe==0&&CurrentPlayer.isreadLetter==0&&CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==375&&CurrentPlayer.hero_orientation=='b')
+    {dialogue_enterRoom();}
+    while(1)
+    {
+	if (CurrentPlayer.hero_y==375)
+	{
+	    vminy=375;
+	    vmaxy=375;
+	    minx=0;
+	    maxx=getmaxx();
+	    if (CurrentPlayer.hero_x<215)
+	    {
+		miny=310;
+		vminx=0;
+		vmaxx=210;
+	    }
+	    else if (CurrentPlayer.hero_x==215)
+	    {
+		miny=310;
+		maxy=405;
+		vminx=215;
+		vmaxx=215;
+	    }
+	    else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230)
+	    {
+		miny=310;
+		maxy=400;
+		vminx=220;
+		vmaxx=225;
+	    }
+	    else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500)
+	    {
+		miny=0;
+		maxy=400;
+		vminx=230;
+		vmaxx=500;
+	    }
+	    else
+	    {
+		miny=310;
+		maxy=400;
+		vminx=500;
+		vmaxx=getmaxx();
+	    }
+	}
+	else if(CurrentPlayer.hero_y>375)
+	{
+	    minx=190;
+	    maxx=240;
+	    miny=310;
+	    maxy=410;
+	    vminx=190;
+	    vmaxx=240;
+	    vminy=380;
+	    vmaxy=410;
+	}
+	else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165)
+	{
+	    minx=205;
+	    maxx=520;
+	    vminx=0;
+	    vmaxx=getmaxx();
+	    miny=0;
+	    maxy=getmaxy();
+	    vminy=170;
+	    vmaxy=370;
+	}
+	else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135)
+	{
+	    minx=70;
+	    maxx=520;
+	    if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225)
+	    {
+		vminx=0;
+		vmaxx=220;
+		miny=70;
+		maxy=190;
+		vminy=0;
+		vmaxy=getmaxy();
+	    }
+	    else if(CurrentPlayer.hero_x>=225)
+	    {
+		vminx=225;
+		vmaxx=getmaxx();
+		miny=0;
+		maxy=getmaxy();
+		vminy=140;
+		vmaxy=165;
+	    }
+	}
+	else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95)
+	{
+	    minx=210;
+	    maxx=520;
+	    vminx=0;
+	    vmaxx=getmaxx();
+	    miny=0;
+	    maxy=getmaxy();
+	    vminy=100;
+	    vmaxy=135;
+	}
+	else if(CurrentPlayer.hero_y<=95)
+	{
+	    if (CurrentPlayer.hero_x<500)
+	    {
+		minx=210;
+		maxx=getmaxx();
+		vminx=0;
+		vmaxx=495;
+		miny=0;
+		maxy=getmaxy();
+		vminy=0;
+		vmaxy=95;
+	    }
+	    else
+	    {
+		minx=210;
+		maxx=getmaxx();
+		vminx=500;
+		vmaxx=getmaxx();
+		miny=0;
+		maxy=120;
+		vminy=0;
+		vmaxy=95;
+	    }
+	}
+
+	move_hero3(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+
+	if (ispressedSpace)
+	{
+	    if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&CurrentPlayer.hero_orientation=='f')
+	    {
+		if(CurrentPlayer.isseenSafe==0)
+		{
+		    dialogue_noexit();
+		}
+		else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==0)
+		{
+		    dialogue_noexitS();
+		}
+		else
+		{dialogue_noexitL();}
+	    }
+	    else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&CurrentPlayer.hero_orientation=='l')
+	    {
+		if(CurrentPlayer.isseenSafe==0&&CurrentPlayer.ishavingKey==0)
+		{
+		    dialogue_floorsafe1();
+		    CurrentPlayer.isseenSafe=1;
+		    dialogue_floorsafe2();
+		}
+		else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==1)
+		{
+		    CurrentPlayer.isreadLetter=1;
+		    dialogue_TheLetter();
+		    quit=1;
+		}
+	    }
+	    else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&CurrentPlayer.hero_orientation=='b')
+	    {
+		if(CurrentPlayer.isseenSafe==1)
+		{
+		    dialogue_keyCode();
+		    CurrentPlayer.ishavingKey=1;
+		}
+	    }
+	    ispressedSpace=0;
+	}
+	if (ispressedEsc)
+	{
+	    quit=1;
+	}
+	if (quit==1)
+	{
+	    return;
+	}
+
+    }
+}
+
+void make_locket(){
+//locket
+setcolor(DARKGRAY);
+setfillstyle(SOLID_FILL,LIGHTGRAY);
+int locket[]={300,100,280,60,240,40,180,40,120,80,80,130,80,200,120,320,
+	      200,400,300,460,400,400,480,320,520,200,520,130,480,80,420,
+	      40,360,40,320,60};
+fillpoly(18,locket);
+
+//words
+setcolor(LIGHTCYAN);
+line(180,120,180,200);
+line(180,200,220,200);
+line(280,160,300,200);
+line(300,200,320,160);
+line(370,160,340,160);
+line(340,160,340,200);
+line(340,180,356,180);
+line(340,200,370,200);
+line(360,220,320,300);
+line(320,220,340,260);
+line(420,260,420,300);
+line(420,300,450,300);
+line(450,300,450,260);
+line(220,320,260,320);
+line(240,320,240,380);
+circle(250,180,20);
+circle(380,280,20);
+circle(280,360,20);
+circle(330,360,20);
+getch();
+}
+
+void ending(){
+    setcolor(RED);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,background_coor);
+    settextjustify(0,1);
+    settextstyle(1,0,1);
+    outtextxy(10,30,"Decisions were never my strength. Also, I was not a hero. So");
+    getch();
+    outtextxy(10,50,"It was very compelling to go back home and forget her.");
+    getch();
+    outtextxy(10,70,"However, I wasn't a coward and I loved her from my heart. Thus");
+    getch();
+    outtextxy(10,90,"I decided to find that ALPHA guy.");
+    getch();
+    outtextxy(10,130,"I didn't know where to start. But i knew that the hotel could");
+    getch();
+    outtextxy(10,150,"provide me only so much.");
+    getch();
+    outtextxy(10,170,"So I slept on the bed which once belonged to her and exited");
+    getch();
+    outtextxy(10,210,"the hotel next day. For three years, I travelled places");
+    getch();
+    outtextxy(10,230,"finding the ALPHA, but he escaped every single time!");
+    getch();
+    outtextxy(10,270,"Finally I found his lair. He had been hiding in my own");
+    getch();
+    outtextxy(10,290,"city all along.");
+    getch();
+    outtextxy(10,330,"Here I was, standing in front of the tall gates of the manor");
+    getch();
+    outtextxy(10,350,"which opened into a dark alley.");
+    getch();
+    outtextxy(10,370,"I kept walking blindly in the deafening dark. At the end of");
+    getch();
+    outtextxy(10,390,"it, came a door which had a pattern in front of it.");
+    getch();
+    outtextxy(10,410,"The keyhole was strangely shaped. Like a... Locket:");
+    getch();
+    outtextxy(10,430,"A half-one. I put my piece and the door popped open...");
+    getch();
+    outtextxy(10,450,"\"So you have finally come.\"");
+    getch();
+    fillpoly(4,background_coor);
+    settextjustify(0,1);
+    settextstyle(1,0,1);
+    outtextxy(10,30,"\"We know who you are Max.\"");
+    getch();
+    outtextxy(10,50,"Two voices were coming from a single entity. One being ");
+    getch();
+    outtextxy(10,70," remarkably similar. I couldn't figure out the similarity until it");
+    getch();
+    outtextxy(10,90,"turned towards me.");
+    getch();
+    outtextxy(10,130,"As its sword drew closer, I saw the face- April's. ");
+    getch();
+    outtextxy(10,150,"It was as if she was under someone's control. I then noticed signs");
+    getch();
+    outtextxy(10,170,"of resistance. I immediately knew she was in there. I noticed the");
+    getch();
+    outtextxy(10,190,"nearby rope which led to the spiked chandelier. I could untie the");
+    getch();
+    outtextxy(10,210,"rope and end her, therefore saving the world. But I couldn't decide.");
+    getch();
+    outtextxy(10,230,"Time was running out, I had to make a decision...");
+    getch();
+    outtextxy(10,250,"Forget the world, I couldn't kill her. So I held the locket in one");
+    getch();
+    outtextxy(10,270,"hand and prepared to die. I was happy that I had fulfilled at least");
+    getch();
+    outtextxy(10,290,"one promise in my life. As the sword I remebered my days with her;");
+    getch();
+    outtextxy(10,310,"pain struck me but the sword stopped going any further.");
+    getch();
+    outtextxy(10,330,"She had suddenly stopped and a bright white flash knocked me");
+    getch();
+    outtextxy(10,350,"unconcious. When I woke up, April was sitting in front of me...");
+    getch();
+    outtextxy(10,390,"\"Thank you Max, your faith is what has kept me alive. The ");
+    getch();
+    outtextxy(10,410," ALPHA was the last spirit-hunter left in a long line of family.");
+    getch();
+    outtextxy(10,430," I wanted to get rid of him but somehow, preying on good souls");
+    getch();
+    outtextxy(10,450," felt satisfying. I felt hopeless but I knew that you'd");
+    getch();
+    fillpoly(4,background_coor);
+    outtextxy(10,30," remember the Locket. Hence I made you follow clues. Any direct");
+    getch();
+    outtextxy(10,50," contact and the ALPHA would've known. You saved me Max.");
+    getch();
+    outtextxy(10,90," You did it.\"");
+    getch();
+    outtextxy(10,130,"With this she faded away like a freed soul. The locket in my");
+    getch();
+    outtextxy(10,150,"hand was now complete. Behing which, appeared the words,");
+    getch();
+    fillpoly(4,background_coor);
+    make_locket();
+    beginning();
+    getch();
+}
