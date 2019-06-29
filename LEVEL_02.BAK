@@ -1,6 +1,7 @@
 //Level_02
 
-void make_reception(){
+void make_reception()
+{
 //whitewash
     setcolor(DARKGRAY);
     setfillstyle(SOLID_FILL,WHITE);
@@ -20,14 +21,14 @@ void make_reception(){
     receptionist(160,95);
 
 //table
-   setfillstyle(SOLID_FILL,RED);
-   int table_coor[]= {250,0,300,0,300,150,0,150,0,100,250,100};
-   fillpoly(6,table_coor);
+    setfillstyle(SOLID_FILL,RED);
+    int table_coor[]= {250,0,300,0,300,150,0,150,0,100,250,100};
+    fillpoly(6,table_coor);
 
 //book
     setfillstyle(SOLID_FILL,WHITE);
     int leftPage_coor[]= {140,110,160,110,160,140,140,140};
-    int rightPage_coor[]={160,110,160,140,180,140,180,110};
+    int rightPage_coor[]= {160,110,160,140,180,140,180,110};
     fillpoly(4,leftPage_coor);
     fillpoly(4,rightPage_coor);
 
@@ -58,100 +59,101 @@ void move_hero2(int &x, int &y, int minx, int maxx, int miny, int maxy, int valm
     {
     case'l':
     {
-	hero_l(x,y);
-	break;
+        hero_l(x,y);
+        break;
     }
     case'r':
     {
-	hero_r(x,y);
-	break;
+        hero_r(x,y);
+        break;
     }
     case'b': {hero_b(x,y);break;}
-	case'f': {hero_f(x,y);break;}
-	    }
-     while(ispressedSpace==0&&ispressedEsc==0)
+        case'f': {hero_f(x,y);break;}
+            }
+    while(ispressedSpace==0&&ispressedEsc==0)
     {
-	if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
-	{
-	    switch (getch())
-	    {
-	    case 0:
-	    {
-		switch (getch())
-		{
-		case 75:
-		{
-		    if(x>(minx+25))
-		    {
-			make_reception();
-			x-=5;
-			hero_l(x,y);
-			CurrentPlayer.hero_orientation='l';
-		    }
-		    break;
-		}
-		case 77:
-		{
-		    if(x<(maxx-25))
-		    {
-			make_reception();
-			x+=5;
-			hero_r(x,y);
-			CurrentPlayer.hero_orientation='r';
-		    }
-		    break;
-		}
-		case 72:
-		{
-		    if(y>(miny+65))
-		    {
-			make_reception();
-			y-=5;
-			hero_b(x,y);
-			CurrentPlayer.hero_orientation='b';
-		    }
-		    break;
-		}
-		case 80:
-		{
-		    if(y<(maxy-25))
-		    {
-			make_reception();
-			y+=5;
-			hero_f(x,y);
-			CurrentPlayer.hero_orientation='f';
-		    }
-		    break;
-		}
-		}
-		save_flag=0;
-		break;
-	    }
-	    case 27:
-	    {
-		ispressedEsc=1;
-		if (save_flag==0)
-		    save('O');
-		break;
-	    }
-	    case 32:
-	    {
-		ispressedSpace=1;
-		break;
-	    }
-	    }
-	}
+        if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
+        {
+            switch (getch())
+            {
+            case 0:
+            {
+                switch (getch())
+                {
+                case 75:
+                {
+                    if(x>(minx+25))
+                    {
+                        make_reception();
+                        x-=5;
+                        hero_l(x,y);
+                        CurrentPlayer.hero_orientation='l';
+                    }
+                    break;
+                }
+                case 77:
+                {
+                    if(x<(maxx-25))
+                    {
+                        make_reception();
+                        x+=5;
+                        hero_r(x,y);
+                        CurrentPlayer.hero_orientation='r';
+                    }
+                    break;
+                }
+                case 72:
+                {
+                    if(y>(miny+65))
+                    {
+                        make_reception();
+                        y-=5;
+                        hero_b(x,y);
+                        CurrentPlayer.hero_orientation='b';
+                    }
+                    break;
+                }
+                case 80:
+                {
+                    if(y<(maxy-25))
+                    {
+                        make_reception();
+                        y+=5;
+                        hero_f(x,y);
+                        CurrentPlayer.hero_orientation='f';
+                    }
+                    break;
+                }
+                }
+                save_flag=0;
+                break;
+            }
+            case 27:
+            {
+                ispressedEsc=1;
+                if (save_flag==0)
+                    save('O');
+                break;
+            }
+            case 32:
+            {
+                ispressedSpace=1;
+                break;
+            }
+            }
+        }
 
-	else
-	{
-	    return;
-	}
+        else
+        {
+            return;
+        }
     }
 
 }
 
 void lvl12_bridge()
-{   setcolor(RED);
+{
+    setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,background_coor);
     settextjustify(0,1);
@@ -164,7 +166,8 @@ void lvl12_bridge()
     getch();
 }
 
-void lvl2_start(){
+void lvl2_start()
+{
     CurrentPlayer.lvl_no=2;
     CurrentPlayer.hero_x=320;
     CurrentPlayer.hero_y=375;
@@ -181,7 +184,8 @@ void lvl2_start(){
 }
 
 void dialogue_reception()
-{   setcolor(RED);
+{
+    setcolor(RED);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
@@ -218,7 +222,8 @@ void dialogue_reception()
 }
 
 void dialogue_wrongLift()
-{ setcolor(RED);
+{
+    setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
     settextjustify(0,1);
@@ -231,7 +236,8 @@ void dialogue_wrongLift()
 }
 
 void dialogue_reception2()
-{   setcolor(RED);
+{
+    setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
     settextjustify(0,1);
@@ -245,7 +251,8 @@ void dialogue_reception2()
 }
 
 void dialogue_noFloor()
-{   setcolor(RED);
+{
+    setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
     settextjustify(0,1);
@@ -258,7 +265,8 @@ void dialogue_noFloor()
 }
 
 void dialogue_notNow()
-{   setcolor(RED);
+{
+    setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
     settextjustify(0,1);
@@ -270,40 +278,106 @@ void dialogue_notNow()
     fillpoly(4,text_coor);
 }
 
-void lvl_02(){
+void lvl_02()
+{
     int minx=0,maxx=450,miny=0,maxy=400;
     int vminx=0,vmaxx,vminy,vmaxy;
     int quit=0;
     make_reception();
     if (CurrentPlayer.lvl_no==1)
-    {lvl2_start();}
-    while(1){
-    if (CurrentPlayer.hero_x<450&&CurrentPlayer.hero_x>320){
-	if(CurrentPlayer.hero_y>0&&CurrentPlayer.hero_y<185){minx=300; maxx=450; miny=0; maxy=400; vminx=0; vmaxx=450; vminy=0; vmaxy=180;}
-	else if(CurrentPlayer.hero_y>=185&&CurrentPlayer.hero_y<400){minx=0; maxx=450; miny=0; maxy=400; vminx=325; vmaxx=450; vminy=185; vmaxy=400;}
+    {
+        lvl2_start();
     }
-    else if(CurrentPlayer.hero_x==320){minx=0; maxx=450; miny=120; maxy=410; vminx=320; vmaxx=320; vminy=125; vmaxy=410;}
-    else {minx=0; maxx=450; miny=120; maxy=400; vminx=0; vmaxx=315; vminy= 0; vmaxy=400;}
+    while(1)
+    {
+        if (CurrentPlayer.hero_x<450&&CurrentPlayer.hero_x>320)
+        {
+            if(CurrentPlayer.hero_y>0&&CurrentPlayer.hero_y<185)
+            {
+                minx=300;
+                maxx=450;
+                miny=0;
+                maxy=400;
+                vminx=0;
+                vmaxx=450;
+                vminy=0;
+                vmaxy=180;
+            }
+            else if(CurrentPlayer.hero_y>=185&&CurrentPlayer.hero_y<400)
+            {
+                minx=0;
+                maxx=450;
+                miny=0;
+                maxy=400;
+                vminx=325;
+                vmaxx=450;
+                vminy=185;
+                vmaxy=400;
+            }
+        }
+        else if(CurrentPlayer.hero_x==320)
+        {
+            minx=0;
+            maxx=450;
+            miny=120;
+            maxy=410;
+            vminx=320;
+            vmaxx=320;
+            vminy=125;
+            vmaxy=410;
+        }
+        else
+        {
+            minx=0;
+            maxx=450;
+            miny=120;
+            maxy=400;
+            vminx=0;
+            vmaxx=315;
+            vminy= 0;
+            vmaxy=400;
+        }
 
-    move_hero2(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+        move_hero2(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
 
-    if (ispressedSpace){
-	    if (CurrentPlayer.hero_x==160&&CurrentPlayer.hero_y==185&&CurrentPlayer.hero_orientation=='b')
-		{
-		if(CurrentPlayer.receptionClue==0){dialogue_reception();CurrentPlayer.receptionClue=1;}
-		else {dialogue_reception2();}
-		}
-	    else if(CurrentPlayer.hero_x==25&&CurrentPlayer.hero_y>=265&&CurrentPlayer.hero_y<=285&&CurrentPlayer.hero_orientation=='l')
-		{if(CurrentPlayer.receptionClue==0){dialogue_noFloor();}
-		 else {quit=1;}}
-	    else if(CurrentPlayer.hero_x==425&&CurrentPlayer.hero_y>=265&&CurrentPlayer.hero_y<=285&&CurrentPlayer.hero_orientation=='r')
-		{dialogue_wrongLift();}
-    ispressedSpace=0;
-    }
-    if (ispressedEsc)
-	{
-	    quit=1;
-	}
-    if(quit==1){break;}
+        if (ispressedSpace)
+        {
+            if (CurrentPlayer.hero_x==160&&CurrentPlayer.hero_y==185&&CurrentPlayer.hero_orientation=='b')
+            {
+                if(CurrentPlayer.receptionClue==0)
+                {
+                    dialogue_reception();
+                    CurrentPlayer.receptionClue=1;
+                }
+                else
+                {
+                    dialogue_reception2();
+                }
+            }
+            else if(CurrentPlayer.hero_x==25&&CurrentPlayer.hero_y>=265&&CurrentPlayer.hero_y<=285&&CurrentPlayer.hero_orientation=='l')
+            {
+                if(CurrentPlayer.receptionClue==0)
+                {
+                    dialogue_noFloor();
+                }
+                else
+                {
+                    quit=1;
+                }
+            }
+            else if(CurrentPlayer.hero_x==425&&CurrentPlayer.hero_y>=265&&CurrentPlayer.hero_y<=285&&CurrentPlayer.hero_orientation=='r')
+            {
+                dialogue_wrongLift();
+            }
+            ispressedSpace=0;
+        }
+        if (ispressedEsc)
+        {
+            quit=1;
+        }
+        if(quit==1)
+        {
+            break;
+        }
     }
 }

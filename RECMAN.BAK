@@ -7,9 +7,9 @@ void receptionist(int x, int y)
     setcolor(DARKGRAY);
     setfillstyle(SOLID_FILL,WHITE);
     int face_coor[]= {x-17,y-14,x-4,y-4,x+4,y-4,x+17,y-14,x+17,y-24,
-		      x+10,y-28,x,y-24,x-10,y-28,x-17,y-24,
-		      x-17,y-14
-		     };
+                      x+10,y-28,x,y-24,x-10,y-28,x-17,y-24,
+                      x-17,y-14
+                     };
     fillpoly(10,face_coor);
 
 //ears
@@ -85,8 +85,9 @@ void receptionist(int x, int y)
     setcolor(DARKGRAY);
     setfillstyle(SOLID_FILL,DARKGRAY);
     int hair_coor[]= {x-19,y-24,x-17,y-24,x-10,y-28,x,y-24,x+10,y-28,
-		      x+17,y-24,x+19,y-24,x+20,y-38,x+16,y-42,x+6,y-48,
-		      x-2,y-50,x-10,y-48,x-18,y-40,x-20,y-34};
+                      x+17,y-24,x+19,y-24,x+20,y-38,x+16,y-42,x+6,y-48,
+                      x-2,y-50,x-10,y-48,x-18,y-40,x-20,y-34
+                     };
 
     fillpoly(14,hair_coor);
 }

@@ -1,6 +1,7 @@
 //level 3
 
-void lvl23_bridge(){
+void lvl23_bridge()
+{
     setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,background_coor);
@@ -102,7 +103,8 @@ void make_Aprilroom()
     fillpoly(4,gate_coor);
 }
 
-void dialogue_enterRoom(){
+void dialogue_enterRoom()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -112,7 +114,8 @@ void dialogue_enterRoom(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_floorsafe1(){
+void dialogue_floorsafe1()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -126,7 +129,8 @@ void dialogue_floorsafe1(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_floorsafe2(){
+void dialogue_floorsafe2()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -140,7 +144,8 @@ void dialogue_floorsafe2(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_noexit(){
+void dialogue_noexit()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -152,7 +157,8 @@ void dialogue_noexit(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_noexitS(){
+void dialogue_noexitS()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -162,14 +168,15 @@ void dialogue_noexitS(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_keyCode(){
+void dialogue_keyCode()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
     outtextxy(10,410,"It's an empty drawer...");
     getch();
-    outtextxy(10,430,"Wait, there are numbers sketched on it.");
+    outtextxy(10,430,"Wait, there are numbers carved on it.");
     getch();
     outtextxy(10,450,"15/04/2002");
     getch();
@@ -179,7 +186,8 @@ void dialogue_keyCode(){
     fillpoly(4,text_coor);
 }
 
-void dialogue_TheLetter(){
+void dialogue_TheLetter()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -229,7 +237,8 @@ void dialogue_TheLetter(){
 
 }
 
-void dialogue_noexitL(){
+void dialogue_noexitL()
+{
     setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
@@ -246,94 +255,94 @@ void move_hero3(int &x, int &y, int minx, int maxx, int miny, int maxy, int valm
     {
     case'l':
     {
-	hero_l(x,y);
-	break;
+        hero_l(x,y);
+        break;
     }
     case'r':
     {
-	hero_r(x,y);
-	break;
+        hero_r(x,y);
+        break;
     }
     case'b': {hero_b(x,y);break;}
-	case'f': {hero_f(x,y);break;}
-	    }
+        case'f': {hero_f(x,y);break;}
+            }
     while(ispressedSpace==0&&ispressedEsc==0)
     {
-	if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
-	{
-	    switch (getch())
-	    {
-	    case 0:
-	    {
-		switch (getch())
-		{
-		case 75:
-		{
-		    if(x>(minx+25))
-		    {
-			make_Aprilroom();
-			x-=5;
-			hero_l(x,y);
-			CurrentPlayer.hero_orientation='l';
-		    }
-		    break;
-		}
-		case 77:
-		{
-		    if(x<(maxx-25))
-		    {
-			make_Aprilroom();
-			x+=5;
-			hero_r(x,y);
-			CurrentPlayer.hero_orientation='r';
-		    }
-		    break;
-		}
-		case 72:
-		{
-		    if(y>(miny+65))
-		    {
-			make_Aprilroom();
-			y-=5;
-			hero_b(x,y);
-			CurrentPlayer.hero_orientation='b';
-		    }
-		    break;
-		}
-		case 80:
-		{
-		    if(y<(maxy-25))
-		    {
-			make_Aprilroom();
-			y+=5;
-			hero_f(x,y);
-			CurrentPlayer.hero_orientation='f';
-		    }
-		    break;
-		}
-		}
-		save_flag=0;
-		break;
-	    }
-	    case 27:
-	    {
-		ispressedEsc=1;
-		if (save_flag==0)
-		    save('O');
-		break;
-	    }
-	    case 32:
-	    {
-		ispressedSpace=1;
-		break;
-	    }
-	    }
-	}
+        if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
+        {
+            switch (getch())
+            {
+            case 0:
+            {
+                switch (getch())
+                {
+                case 75:
+                {
+                    if(x>(minx+25))
+                    {
+                        make_Aprilroom();
+                        x-=5;
+                        hero_l(x,y);
+                        CurrentPlayer.hero_orientation='l';
+                    }
+                    break;
+                }
+                case 77:
+                {
+                    if(x<(maxx-25))
+                    {
+                        make_Aprilroom();
+                        x+=5;
+                        hero_r(x,y);
+                        CurrentPlayer.hero_orientation='r';
+                    }
+                    break;
+                }
+                case 72:
+                {
+                    if(y>(miny+65))
+                    {
+                        make_Aprilroom();
+                        y-=5;
+                        hero_b(x,y);
+                        CurrentPlayer.hero_orientation='b';
+                    }
+                    break;
+                }
+                case 80:
+                {
+                    if(y<(maxy-25))
+                    {
+                        make_Aprilroom();
+                        y+=5;
+                        hero_f(x,y);
+                        CurrentPlayer.hero_orientation='f';
+                    }
+                    break;
+                }
+                }
+                save_flag=0;
+                break;
+            }
+            case 27:
+            {
+                ispressedEsc=1;
+                if (save_flag==0)
+                    save('O');
+                break;
+            }
+            case 32:
+            {
+                ispressedSpace=1;
+                break;
+            }
+            }
+        }
 
-	else
-	{
-	    return;
-	}
+        else
+        {
+            return;
+        }
     }
 
 }
@@ -350,220 +359,227 @@ void lvl_03()
     int quit=0;
     make_Aprilroom();
     if (CurrentPlayer.isseenSafe==0&&CurrentPlayer.isreadLetter==0&&CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==375&&CurrentPlayer.hero_orientation=='b')
-    {dialogue_enterRoom();}
+    {
+        dialogue_enterRoom();
+    }
     while(1)
     {
-	if (CurrentPlayer.hero_y==375)
-	{
-	    vminy=375;
-	    vmaxy=375;
-	    minx=0;
-	    maxx=getmaxx();
-	    if (CurrentPlayer.hero_x<215)
-	    {
-		miny=310;
-		vminx=0;
-		vmaxx=210;
-	    }
-	    else if (CurrentPlayer.hero_x==215)
-	    {
-		miny=310;
-		maxy=405;
-		vminx=215;
-		vmaxx=215;
-	    }
-	    else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230)
-	    {
-		miny=310;
-		maxy=400;
-		vminx=220;
-		vmaxx=225;
-	    }
-	    else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500)
-	    {
-		miny=0;
-		maxy=400;
-		vminx=230;
-		vmaxx=500;
-	    }
-	    else
-	    {
-		miny=310;
-		maxy=400;
-		vminx=500;
-		vmaxx=getmaxx();
-	    }
-	}
-	else if(CurrentPlayer.hero_y>375)
-	{
-	    minx=190;
-	    maxx=240;
-	    miny=310;
-	    maxy=410;
-	    vminx=190;
-	    vmaxx=240;
-	    vminy=380;
-	    vmaxy=410;
-	}
-	else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165)
-	{
-	    minx=205;
-	    maxx=520;
-	    vminx=0;
-	    vmaxx=getmaxx();
-	    miny=0;
-	    maxy=getmaxy();
-	    vminy=170;
-	    vmaxy=370;
-	}
-	else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135)
-	{
-	    minx=70;
-	    maxx=520;
-	    if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225)
-	    {
-		vminx=0;
-		vmaxx=220;
-		miny=70;
-		maxy=190;
-		vminy=0;
-		vmaxy=getmaxy();
-	    }
-	    else if(CurrentPlayer.hero_x>=225)
-	    {
-		vminx=225;
-		vmaxx=getmaxx();
-		miny=0;
-		maxy=getmaxy();
-		vminy=140;
-		vmaxy=165;
-	    }
-	}
-	else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95)
-	{
-	    minx=210;
-	    maxx=520;
-	    vminx=0;
-	    vmaxx=getmaxx();
-	    miny=0;
-	    maxy=getmaxy();
-	    vminy=100;
-	    vmaxy=135;
-	}
-	else if(CurrentPlayer.hero_y<=95)
-	{
-	    if (CurrentPlayer.hero_x<500)
-	    {
-		minx=210;
-		maxx=getmaxx();
-		vminx=0;
-		vmaxx=495;
-		miny=0;
-		maxy=getmaxy();
-		vminy=0;
-		vmaxy=95;
-	    }
-	    else
-	    {
-		minx=210;
-		maxx=getmaxx();
-		vminx=500;
-		vmaxx=getmaxx();
-		miny=0;
-		maxy=120;
-		vminy=0;
-		vmaxy=95;
-	    }
-	}
+        if (CurrentPlayer.hero_y==375)
+        {
+            vminy=375;
+            vmaxy=375;
+            minx=0;
+            maxx=getmaxx();
+            if (CurrentPlayer.hero_x<215)
+            {
+                miny=310;
+                vminx=0;
+                vmaxx=210;
+            }
+            else if (CurrentPlayer.hero_x==215)
+            {
+                miny=310;
+                maxy=405;
+                vminx=215;
+                vmaxx=215;
+            }
+            else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230)
+            {
+                miny=310;
+                maxy=400;
+                vminx=220;
+                vmaxx=225;
+            }
+            else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500)
+            {
+                miny=0;
+                maxy=400;
+                vminx=230;
+                vmaxx=500;
+            }
+            else
+            {
+                miny=310;
+                maxy=400;
+                vminx=500;
+                vmaxx=getmaxx();
+            }
+        }
+        else if(CurrentPlayer.hero_y>375)
+        {
+            minx=190;
+            maxx=240;
+            miny=310;
+            maxy=410;
+            vminx=190;
+            vmaxx=240;
+            vminy=380;
+            vmaxy=410;
+        }
+        else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165)
+        {
+            minx=205;
+            maxx=520;
+            vminx=0;
+            vmaxx=getmaxx();
+            miny=0;
+            maxy=getmaxy();
+            vminy=170;
+            vmaxy=370;
+        }
+        else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135)
+        {
+            minx=70;
+            maxx=520;
+            if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225)
+            {
+                vminx=0;
+                vmaxx=220;
+                miny=70;
+                maxy=190;
+                vminy=0;
+                vmaxy=getmaxy();
+            }
+            else if(CurrentPlayer.hero_x>=225)
+            {
+                vminx=225;
+                vmaxx=getmaxx();
+                miny=0;
+                maxy=getmaxy();
+                vminy=140;
+                vmaxy=165;
+            }
+        }
+        else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95)
+        {
+            minx=210;
+            maxx=520;
+            vminx=0;
+            vmaxx=getmaxx();
+            miny=0;
+            maxy=getmaxy();
+            vminy=100;
+            vmaxy=135;
+        }
+        else if(CurrentPlayer.hero_y<=95)
+        {
+            if (CurrentPlayer.hero_x<500)
+            {
+                minx=210;
+                maxx=getmaxx();
+                vminx=0;
+                vmaxx=495;
+                miny=0;
+                maxy=getmaxy();
+                vminy=0;
+                vmaxy=95;
+            }
+            else
+            {
+                minx=210;
+                maxx=getmaxx();
+                vminx=500;
+                vmaxx=getmaxx();
+                miny=0;
+                maxy=120;
+                vminy=0;
+                vmaxy=95;
+            }
+        }
 
-	move_hero3(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+        move_hero3(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
 
-	if (ispressedSpace)
-	{
-	    if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&CurrentPlayer.hero_orientation=='f')
-	    {
-		if(CurrentPlayer.isseenSafe==0)
-		{
-		    dialogue_noexit();
-		}
-		else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==0)
-		{
-		    dialogue_noexitS();
-		}
-		else
-		{dialogue_noexitL();}
-	    }
-	    else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&CurrentPlayer.hero_orientation=='l')
-	    {
-		if(CurrentPlayer.isseenSafe==0&&CurrentPlayer.ishavingKey==0)
-		{
-		    dialogue_floorsafe1();
-		    CurrentPlayer.isseenSafe=1;
-		    dialogue_floorsafe2();
-		}
-		else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==1)
-		{
-		    CurrentPlayer.isreadLetter=1;
-		    dialogue_TheLetter();
-		    quit=1;
-		}
-	    }
-	    else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&CurrentPlayer.hero_orientation=='b')
-	    {
-		if(CurrentPlayer.isseenSafe==1)
-		{
-		    dialogue_keyCode();
-		    CurrentPlayer.ishavingKey=1;
-		}
-	    }
-	    ispressedSpace=0;
-	}
-	if (ispressedEsc)
-	{
-	    quit=1;
-	}
-	if (quit==1)
-	{
-	    return;
-	}
+        if (ispressedSpace)
+        {
+            if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&CurrentPlayer.hero_orientation=='f')
+            {
+                if(CurrentPlayer.isseenSafe==0)
+                {
+                    dialogue_noexit();
+                }
+                else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==0)
+                {
+                    dialogue_noexitS();
+                }
+                else
+                {
+                    dialogue_noexitL();
+                }
+            }
+            else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&CurrentPlayer.hero_orientation=='l')
+            {
+                if(CurrentPlayer.isseenSafe==0&&CurrentPlayer.ishavingKey==0)
+                {
+                    dialogue_floorsafe1();
+                    CurrentPlayer.isseenSafe=1;
+                    dialogue_floorsafe2();
+                }
+                else if(CurrentPlayer.isseenSafe==1&&CurrentPlayer.ishavingKey==1)
+                {
+                    CurrentPlayer.isreadLetter=1;
+                    dialogue_TheLetter();
+                    quit=1;
+                }
+            }
+            else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&CurrentPlayer.hero_orientation=='b')
+            {
+                if(CurrentPlayer.isseenSafe==1)
+                {
+                    dialogue_keyCode();
+                    CurrentPlayer.ishavingKey=1;
+                }
+            }
+            ispressedSpace=0;
+        }
+        if (ispressedEsc)
+        {
+            quit=1;
+        }
+        if (quit==1)
+        {
+            return;
+        }
 
     }
 }
 
-void make_locket(){
+void make_locket()
+{
 //locket
-setcolor(DARKGRAY);
-setfillstyle(SOLID_FILL,LIGHTGRAY);
-int locket[]={300,100,280,60,240,40,180,40,120,80,80,130,80,200,120,320,
-	      200,400,300,460,400,400,480,320,520,200,520,130,480,80,420,
-	      40,360,40,320,60};
-fillpoly(18,locket);
+    setcolor(DARKGRAY);
+    setfillstyle(SOLID_FILL,LIGHTGRAY);
+    int locket[]= {300,100,280,60,240,40,180,40,120,80,80,130,80,200,120,320,
+                   200,400,300,460,400,400,480,320,520,200,520,130,480,80,420,
+                   40,360,40,320,60
+                  };
+    fillpoly(18,locket);
 
 //words
-setcolor(LIGHTCYAN);
-line(180,120,180,200);
-line(180,200,220,200);
-line(280,160,300,200);
-line(300,200,320,160);
-line(370,160,340,160);
-line(340,160,340,200);
-line(340,180,356,180);
-line(340,200,370,200);
-line(360,220,320,300);
-line(320,220,340,260);
-line(420,260,420,300);
-line(420,300,450,300);
-line(450,300,450,260);
-line(220,320,260,320);
-line(240,320,240,380);
-circle(250,180,20);
-circle(380,280,20);
-circle(280,360,20);
-circle(330,360,20);
-getch();
+    setcolor(LIGHTCYAN);
+    line(180,120,180,200);
+    line(180,200,220,200);
+    line(280,160,300,200);
+    line(300,200,320,160);
+    line(370,160,340,160);
+    line(340,160,340,200);
+    line(340,180,356,180);
+    line(340,200,370,200);
+    line(360,220,320,300);
+    line(320,220,340,260);
+    line(420,260,420,300);
+    line(420,300,450,300);
+    line(450,300,450,260);
+    line(220,320,260,320);
+    line(240,320,240,380);
+    circle(250,180,20);
+    circle(380,280,20);
+    circle(280,360,20);
+    circle(330,360,20);
+    getch();
 }
 
-void ending(){
+void ending()
+{
     setcolor(RED);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,background_coor);
@@ -577,11 +593,11 @@ void ending(){
     getch();
     outtextxy(10,90,"I decided to find that ALPHA guy.");
     getch();
-    outtextxy(10,130,"I didn't know where to start. But i knew that the hotel could");
+    outtextxy(10,130,"I didn't know where to start. But I knew that the hotel could");
     getch();
     outtextxy(10,150,"provide me only so much.");
     getch();
-    outtextxy(10,170,"So I slept on the bed which once belonged to her and exited");
+    outtextxy(10,170,"So I slept on the bed which once belonged to her and checked-out");
     getch();
     outtextxy(10,210,"the hotel next day. For three years, I travelled places");
     getch();
@@ -601,40 +617,40 @@ void ending(){
     getch();
     outtextxy(10,410,"The keyhole was strangely shaped. Like a... Locket:");
     getch();
-    outtextxy(10,430,"A half-one. I put my piece and the door popped open...");
+    outtextxy(10,430,"Only half. I flashed my piece and the door clanked...");
     getch();
     outtextxy(10,450,"\"So you have finally come.\"");
     getch();
     fillpoly(4,background_coor);
     settextjustify(0,1);
     settextstyle(1,0,1);
-    outtextxy(10,30,"\"We know who you are Max.\"");
+    outtextxy(10,30,"\"We know who you are, Max.\"");
     getch();
     outtextxy(10,50,"Two voices were coming from a single entity. One being ");
     getch();
-    outtextxy(10,70," remarkably similar. I couldn't figure out the similarity until it");
+    outtextxy(10,70," remarkably similar. I couldn't figure out until it");
     getch();
     outtextxy(10,90,"turned towards me.");
     getch();
-    outtextxy(10,130,"As its sword drew closer, I saw the face- April's. ");
+    outtextxy(10,130,"As its sword drew closer, I saw the face- April's it was. ");
     getch();
     outtextxy(10,150,"It was as if she was under someone's control. I then noticed signs");
     getch();
-    outtextxy(10,170,"of resistance. I immediately knew she was in there. I noticed the");
+    outtextxy(10,170,"of resistance. I immediately knew she was in there. I saw the");
     getch();
     outtextxy(10,190,"nearby rope which led to the spiked chandelier. I could untie the");
     getch();
-    outtextxy(10,210,"rope and end her, therefore saving the world. But I couldn't decide.");
+    outtextxy(10,210,"rope and end her right away. But I couldn't decide.");
     getch();
     outtextxy(10,230,"Time was running out, I had to make a decision...");
     getch();
-    outtextxy(10,250,"Forget the world, I couldn't kill her. So I held the locket in one");
+    outtextxy(10,250,"Forget it, I couldn't kill her. So I held the locket in one");
     getch();
     outtextxy(10,270,"hand and prepared to die. I was happy that I had fulfilled at least");
     getch();
-    outtextxy(10,290,"one promise in my life. As the sword I remebered my days with her;");
+    outtextxy(10,290,"one promise in my life. As the sword pierced my skin, I reminisced");
     getch();
-    outtextxy(10,310,"pain struck me but the sword stopped going any further.");
+    outtextxy(10,310,"my time with her. Pain struck me, but the sword stopped with a jerk.");
     getch();
     outtextxy(10,330,"She had suddenly stopped and a bright white flash knocked me");
     getch();
@@ -657,7 +673,7 @@ void ending(){
     getch();
     outtextxy(10,130,"With this she faded away like a freed soul. The locket in my");
     getch();
-    outtextxy(10,150,"hand was now complete. Behing which, appeared the words,");
+    outtextxy(10,150,"hand was now complete. Behind which, etched the words,");
     getch();
     fillpoly(4,background_coor);
     make_locket();

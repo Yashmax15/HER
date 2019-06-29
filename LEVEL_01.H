@@ -31,15 +31,15 @@ void intro()
     getch();
     outtextxy(10,90,"Three years ago, I landed in New York to find the girl of my life.");
     getch();
-    outtextxy(10,110,"We had separated when we were back in school.");
+    outtextxy(10,110,"We had separated back in school.");
     getch();
     outtextxy(10,130,"\"You're gonna come and see me, right?\"");
     getch();
-    outtextxy(10,150,"\"You doubt that?\"");
+    outtextxy(10,170,"\"You doubt that?\"");
     getch();
-    outtextxy(10,170,"\"Just in case you ever try to forget me, here's a little something.\"");
+    outtextxy(10,190,"\"Just in case you ever try to forget me, here's a little something.\"");
     getch();
-    outtextxy(10,190,"And then she broke her locket into half and gave one piece to me.");
+    outtextxy(10,230,"And then she broke her locket into half and gave one piece to me.");
     getch();
 }
 
@@ -128,99 +128,100 @@ void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valmi
     case'l':
     {
         hero_l(x,y);
-	break;
+        break;
     }
     case'r':
     {
-	hero_r(x,y);
-	break;
+        hero_r(x,y);
+        break;
     }
     case'b': {hero_b(x,y);break;}
-	case'f': {hero_f(x,y);break;}
-	    }
+        case'f': {hero_f(x,y);break;}
+            }
     while(ispressedSpace==0&&ispressedEsc==0)
     {
-	if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
-	{
-	    switch (getch())
-	    {
-	    case 0:
-	    {
-		switch (getch())
-		{
-		case 75:
-		{
-		    if(x>(minx+25))
-		    {
-			make_room();
-			x-=5;
-			hero_l(x,y);
-			CurrentPlayer.hero_orientation='l';
-		    }
-		    break;
-		}
-		case 77:
-		{
-		    if(x<(maxx-25))
-		    {
-			make_room();
-			x+=5;
-			hero_r(x,y);
-			CurrentPlayer.hero_orientation='r';
-		    }
-		    break;
-		}
-		case 72:
-		{
-		    if(y>(miny+65))
-		    {
-			make_room();
-			y-=5;
-			hero_b(x,y);
-			CurrentPlayer.hero_orientation='b';
-		    }
-		    break;
-		}
-		case 80:
-		{
-		    if(y<(maxy-25))
-		    {
-			make_room();
-			y+=5;
-			hero_f(x,y);
-			CurrentPlayer.hero_orientation='f';
-		    }
-		    break;
-		}
-		}
-		save_flag=0;
-		break;
-	    }
-	    case 27:
-	    {
-		ispressedEsc=1;
-		if (save_flag==0)
-		    save('O');
-		break;
-	    }
-	    case 32:
-	    {
-		ispressedSpace=1;
-		break;
-	    }
-	    }
-	}
+        if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
+        {
+            switch (getch())
+            {
+            case 0:
+            {
+                switch (getch())
+                {
+                case 75:
+                {
+                    if(x>(minx+25))
+                    {
+                        make_room();
+                        x-=5;
+                        hero_l(x,y);
+                        CurrentPlayer.hero_orientation='l';
+                    }
+                    break;
+                }
+                case 77:
+                {
+                    if(x<(maxx-25))
+                    {
+                        make_room();
+                        x+=5;
+                        hero_r(x,y);
+                        CurrentPlayer.hero_orientation='r';
+                    }
+                    break;
+                }
+                case 72:
+                {
+                    if(y>(miny+65))
+                    {
+                        make_room();
+                        y-=5;
+                        hero_b(x,y);
+                        CurrentPlayer.hero_orientation='b';
+                    }
+                    break;
+                }
+                case 80:
+                {
+                    if(y<(maxy-25))
+                    {
+                        make_room();
+                        y+=5;
+                        hero_f(x,y);
+                        CurrentPlayer.hero_orientation='f';
+                    }
+                    break;
+                }
+                }
+                save_flag=0;
+                break;
+            }
+            case 27:
+            {
+                ispressedEsc=1;
+                if (save_flag==0)
+                    save('O');
+                break;
+            }
+            case 32:
+            {
+                ispressedSpace=1;
+                break;
+            }
+            }
+        }
 
-	else
-	{
-	    return;
-	}
+        else
+        {
+            return;
+        }
     }
 
 }
 
 void dialogue_start()
-{   setcolor(DARKGRAY);
+{
+    setcolor(DARKGRAY);
     settextstyle(3,0,1);
     setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,text_coor);
@@ -241,7 +242,7 @@ void dialogue_mail()
     fillpoly(4,text_coor);
     outtextxy(10,410,"Mail: Hey,");
     getch();
-    outtextxy(10,430,"I bet you don't really remeber. There's no other reason why you still");
+    outtextxy(10,430,"I bet you don't really remeber. There's no other reason why you");
     getch();
     outtextxy(10,450,"couldn't come. You were never good at promises. I hope that locket");
     getch();
@@ -250,7 +251,7 @@ void dialogue_mail()
     getch();
     outtextxy(10,430,"I wouldn't have contacted you, I didn't mean to intrude, but I really ");
     getch();
-    outtextxy(10,450,"need you right now. Things are not... right. I should not have come");
+    outtextxy(10,450,"need you right now. Things are not... right here. I should not have come");
     getch();
     fillpoly(4,text_coor);
     outtextxy(10,410,"here in the first place. I should have listened to you. I hope it is");
@@ -349,192 +350,194 @@ void lvl_01()
     int quit=0;
     make_room();
     if (CurrentPlayer.isreadMail==0&&CurrentPlayer.istakenLocket==0&&CurrentPlayer.hero_x==120&&CurrentPlayer.hero_y==165&&CurrentPlayer.hero_orientation=='b')
-    {dialogue_start();}
+    {
+        dialogue_start();
+    }
     while(1)
     {
-	if (CurrentPlayer.hero_y==375)
-	{
-	    vminy=375;
-	    vmaxy=375;
-	    minx=0;
-	    maxx=getmaxx();
-	    if (CurrentPlayer.hero_x<215)
-	    {
-		miny=310;
-		vminx=0;
-		vmaxx=210;
-	    }
-	    else if (CurrentPlayer.hero_x==215)
-	    {
-		miny=310;
-		maxy=405;
-		vminx=215;
-		vmaxx=215;
-	    }
-	    else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230)
-	    {
-		miny=310;
-		maxy=400;
-		vminx=220;
-		vmaxx=225;
-	    }
-	    else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500)
-	    {
-		miny=0;
-		maxy=400;
-		vminx=230;
-		vmaxx=500;
-	    }
-	    else
-	    {
-		miny=310;
-		maxy=400;
-		vminx=500;
-		vmaxx=getmaxx();
-	    }
-	}
-	else if(CurrentPlayer.hero_y>375)
-	{
-	    minx=190;
-	    maxx=240;
-	    miny=310;
-	    maxy=410;
-	    vminx=190;
-	    vmaxx=240;
-	    vminy=380;
-	    vmaxy=410;
-	}
-	else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165)
-	{
-	    minx=205;
-	    maxx=520;
-	    vminx=0;
-	    vmaxx=getmaxx();
-	    miny=0;
-	    maxy=getmaxy();
-	    vminy=170;
-	    vmaxy=370;
-	}
-	else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135)
-	{
-	    minx=70;
-	    maxx=520;
-	    if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225)
-	    {
-		vminx=0;
-		vmaxx=220;
-		miny=70;
-		maxy=190;
-		vminy=0;
-		vmaxy=getmaxy();
-	    }
-	    else if(CurrentPlayer.hero_x>=225)
-	    {
-		vminx=225;
-		vmaxx=getmaxx();
-		miny=0;
-		maxy=getmaxy();
-		vminy=140;
-		vmaxy=165;
-	    }
-	}
-	else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95)
-	{
-	    minx=210;
-	    maxx=520;
-	    vminx=0;
-	    vmaxx=getmaxx();
-	    miny=0;
-	    maxy=getmaxy();
-	    vminy=100;
-	    vmaxy=135;
-	}
-	else if(CurrentPlayer.hero_y<=95)
-	{
-	    if (CurrentPlayer.hero_x<500)
-	    {
-		minx=210;
-		maxx=getmaxx();
-		vminx=0;
-		vmaxx=495;
-		miny=0;
-		maxy=getmaxy();
-		vminy=0;
-		vmaxy=95;
-	    }
-	    else
-	    {
-		minx=210;
-		maxx=getmaxx();
-		vminx=500;
-		vmaxx=getmaxx();
-		miny=0;
-		maxy=120;
-		vminy=0;
-		vmaxy=95;
-	    }
-	}
+        if (CurrentPlayer.hero_y==375)
+        {
+            vminy=375;
+            vmaxy=375;
+            minx=0;
+            maxx=getmaxx();
+            if (CurrentPlayer.hero_x<215)
+            {
+                miny=310;
+                vminx=0;
+                vmaxx=210;
+            }
+            else if (CurrentPlayer.hero_x==215)
+            {
+                miny=310;
+                maxy=405;
+                vminx=215;
+                vmaxx=215;
+            }
+            else if (CurrentPlayer.hero_x>215&&CurrentPlayer.hero_x<230)
+            {
+                miny=310;
+                maxy=400;
+                vminx=220;
+                vmaxx=225;
+            }
+            else if (CurrentPlayer.hero_x>=230&&CurrentPlayer.hero_x<500)
+            {
+                miny=0;
+                maxy=400;
+                vminx=230;
+                vmaxx=500;
+            }
+            else
+            {
+                miny=310;
+                maxy=400;
+                vminx=500;
+                vmaxx=getmaxx();
+            }
+        }
+        else if(CurrentPlayer.hero_y>375)
+        {
+            minx=190;
+            maxx=240;
+            miny=310;
+            maxy=410;
+            vminx=190;
+            vmaxx=240;
+            vminy=380;
+            vmaxy=410;
+        }
+        else if(CurrentPlayer.hero_y<375&&CurrentPlayer.hero_y>165)
+        {
+            minx=205;
+            maxx=520;
+            vminx=0;
+            vmaxx=getmaxx();
+            miny=0;
+            maxy=getmaxy();
+            vminy=170;
+            vmaxy=370;
+        }
+        else if(CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>135)
+        {
+            minx=70;
+            maxx=520;
+            if(CurrentPlayer.hero_x>70&&CurrentPlayer.hero_x<225)
+            {
+                vminx=0;
+                vmaxx=220;
+                miny=70;
+                maxy=190;
+                vminy=0;
+                vmaxy=getmaxy();
+            }
+            else if(CurrentPlayer.hero_x>=225)
+            {
+                vminx=225;
+                vmaxx=getmaxx();
+                miny=0;
+                maxy=getmaxy();
+                vminy=140;
+                vmaxy=165;
+            }
+        }
+        else if(CurrentPlayer.hero_y<=135&&CurrentPlayer.hero_y>95)
+        {
+            minx=210;
+            maxx=520;
+            vminx=0;
+            vmaxx=getmaxx();
+            miny=0;
+            maxy=getmaxy();
+            vminy=100;
+            vmaxy=135;
+        }
+        else if(CurrentPlayer.hero_y<=95)
+        {
+            if (CurrentPlayer.hero_x<500)
+            {
+                minx=210;
+                maxx=getmaxx();
+                vminx=0;
+                vmaxx=495;
+                miny=0;
+                maxy=getmaxy();
+                vminy=0;
+                vmaxy=95;
+            }
+            else
+            {
+                minx=210;
+                maxx=getmaxx();
+                vminx=500;
+                vmaxx=getmaxx();
+                miny=0;
+                maxy=120;
+                vminy=0;
+                vmaxy=95;
+            }
+        }
 
-	move_hero(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
+        move_hero(CurrentPlayer.hero_x,CurrentPlayer.hero_y,minx,maxx,miny,maxy,vminx,vmaxx,vminy,vmaxy);
 
-	if (ispressedSpace)
-	{
-	    if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&::CurrentPlayer.hero_orientation=='f')
-	    {
-		if(CurrentPlayer.isreadMail==0)
-		{
-		    dialogue_noexit1();
-		}
-		else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
-		{
-		    dialogue_noexit2();
-		}
-		else
-		{
-		    quit=1;
-		}
-	    }
-	    else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y>=225&&CurrentPlayer.hero_y<=250&&::CurrentPlayer.hero_orientation=='r')
-	    {
-		if(CurrentPlayer.isreadMail==0)
-		{
-		    dialogue_mail();
-		    CurrentPlayer.isreadMail=1;
-		}
-		else if(CurrentPlayer.isreadMail==1)
-		{
-		    dialogue_postmail();
-		}
-	    }
-	    else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&::CurrentPlayer.hero_orientation=='l')
-	    {
-		if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
-		{
-		    dialogue_rightDrawer1();
-		    CurrentPlayer.istakenLocket=1;
-		}
-		else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==1)
-		{
-		    dialogue_rightDrawer2();
-		}
-	    }
-	    else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
-	    {
-		if(CurrentPlayer.isreadMail==1)
-		{
-		    dialogue_wrongDrawer();
-		}
-	    }
-	    ispressedSpace=0;
-	}
-	if (ispressedEsc)
-	{
-	    quit=1;
-	}
-	if (quit==1)
-	{
-	    return;
-	}
+        if (ispressedSpace)
+        {
+            if (CurrentPlayer.hero_x==215&&CurrentPlayer.hero_y==385&&::CurrentPlayer.hero_orientation=='f')
+            {
+                if(CurrentPlayer.isreadMail==0)
+                {
+                    dialogue_noexit1();
+                }
+                else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
+                {
+                    dialogue_noexit2();
+                }
+                else
+                {
+                    quit=1;
+                }
+            }
+            else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y>=225&&CurrentPlayer.hero_y<=250&&::CurrentPlayer.hero_orientation=='r')
+            {
+                if(CurrentPlayer.isreadMail==0)
+                {
+                    dialogue_mail();
+                    CurrentPlayer.isreadMail=1;
+                }
+                else if(CurrentPlayer.isreadMail==1)
+                {
+                    dialogue_postmail();
+                }
+            }
+            else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&::CurrentPlayer.hero_orientation=='l')
+            {
+                if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
+                {
+                    dialogue_rightDrawer1();
+                    CurrentPlayer.istakenLocket=1;
+                }
+                else if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==1)
+                {
+                    dialogue_rightDrawer2();
+                }
+            }
+            else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
+            {
+                if(CurrentPlayer.isreadMail==1)
+                {
+                    dialogue_wrongDrawer();
+                }
+            }
+            ispressedSpace=0;
+        }
+        if (ispressedEsc)
+        {
+            quit=1;
+        }
+        if (quit==1)
+        {
+            return;
+        }
 
     }
 }

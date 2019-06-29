@@ -136,9 +136,9 @@ void hero_b(int x, int y)
     setcolor(BROWN);
     setfillstyle(SOLID_FILL,BROWN);
     int hair_coor[]= {x+19,y-24,x+20,y-34,x+18,y-34,x+18,y-43,x+15,y-48,x+13,y-44,
-		      x+8,y-62,x-2,y-50,x-3,y-41,x-5,y-47,x-8,y-46,x-10,y-54,x-15,y-41,
-		      x-20,y-38,x-19,y-24,x-17,y-24,x-8,y-18,x+8,y-18,x+17,y-24
-		     };
+                      x+8,y-62,x-2,y-50,x-3,y-41,x-5,y-47,x-8,y-46,x-10,y-54,x-15,y-41,
+                      x-20,y-38,x-19,y-24,x-17,y-24,x-8,y-18,x+8,y-18,x+17,y-24
+                     };
 
     fillpoly(19,hair_coor);
 }

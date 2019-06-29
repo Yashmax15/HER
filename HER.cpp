@@ -36,13 +36,29 @@ void new_game()
 {
     help();
     intro();
-    if(1){
-    lvl_01();if(ispressedEsc==1){ispressedEsc=0;return;}
-    lvl12_bridge();
-    lvl_02();if(ispressedEsc==1){ispressedEsc=0;return;}
-    lvl23_bridge();
-    lvl_03();if(ispressedEsc==1){ispressedEsc=0;return;}
-    ending();
+    if(1)
+    {
+        lvl_01();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        lvl12_bridge();
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        ending();
     }
 }
 
@@ -52,24 +68,60 @@ void continue_game()
     {
     case 1:
     {
-	lvl_01();if(ispressedEsc==1){ispressedEsc=0;break;}
-	lvl12_bridge();
-	lvl_02();if(ispressedEsc==1){ispressedEsc=0;break;}
-	lvl23_bridge();
-	lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
-	ending();
-	break;
+        lvl_01();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl12_bridge();
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
+        break;
 
     }
-    case 2: {lvl_02();if(ispressedEsc==1){ispressedEsc=0;break;}
-	     lvl23_bridge();
-	     lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
-	     ending();
-	     break;}
+    case 2:
+    {
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
+        break;
+    }
 
-    case 3: {lvl_03();if(ispressedEsc==1){ispressedEsc=0;break;}
-	     ending();
-	     break;}
+    case 3:
+    {
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
+        break;
+    }
     }
 
 }
@@ -84,39 +136,39 @@ void main()
     beginning();
     while(!SYSTEM_EXIT)
     {
-	switch(StartMenu())
-	{
-	case 0:
-	{
-	    if(load_save())
-		continue_game();
-	    break;
-	}
-	case 1:
-	{
-	    new_game();
-	    break;
-	}
-	case 2:
-	{
-	    save('O');
-	    break;
-	}
-	case 3:
-	{
-	    save('N');
-	    break;
-	}
-	case 4:
-	{
-	    SYSTEM_EXIT=1;
-	    setfillstyle(SOLID_FILL,WHITE);
-	    fillpoly(4,background_coor);
-	    setcolor(DARKGRAY);
-	    outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
-	    break;
-	}
-	}
+        switch(StartMenu())
+        {
+        case 0:
+        {
+            if(load_save())
+                continue_game();
+            break;
+        }
+        case 1:
+        {
+            new_game();
+            break;
+        }
+        case 2:
+        {
+            save('O');
+            break;
+        }
+        case 3:
+        {
+            save('N');
+            break;
+        }
+        case 4:
+        {
+            SYSTEM_EXIT=1;
+            setfillstyle(SOLID_FILL,WHITE);
+            fillpoly(4,background_coor);
+            setcolor(DARKGRAY);
+            outtextxy(320,240,"Thank you for playing HER -A Tale Unsung. Press any key to exit.");
+            break;
+        }
+        }
     }
     getch();
 }
